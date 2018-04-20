@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="drawerVbox" maxHeight="Infinity" maxWidth="Infinity" prefHeight="419.0" prefWidth="0.0" spacing="5.0"
+      xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" id="drawerBody">
+    <children>
+        <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" id="headerImage">
+            <image>
+                <Image url="file:/Users/sofien/Desktop/nativeScript/Gestionde_stock_caisse/Ressources/drawer_background.png"/>
+            </image>
+            <effect>
+                <BoxBlur height="8.11" iterations="0" width="14.33"/>
+            </effect>
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+        </ImageView>
+        <Button mnemonicParsing="false" prefHeight="53.0" maxWidth="Infinity" prefWidth="200.0" text="Produit"
+                VBox.vgrow="ALWAYS"/>
+        <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="200.0" maxWidth="Infinity" text="Fournisseur"/>
+        <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="200.0" maxWidth="Infinity" text="Categorie"/>
+        <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="200.0" maxWidth="Infinity" text="Exit"/>
+    </children>
+</VBox>
