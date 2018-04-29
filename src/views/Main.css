@@ -14,18 +14,17 @@
 .jfx-hamburger StackPane{
 	-fx-background-color: white;
 }
-.button{
-    -fx-background-color: #7d5fff;
-    -fx-text-fill : white ;
-    -fx-effect: dropshadow( three-pass-box , #3d3d3d , 2, 0 , 0 , 2 );
 
-}
 .button:hover{
     -fx-background-color: #7158e2;
     -fx-text-fill : white ;
     -fx-effect: dropshadow( three-pass-box , #3d3d3d , 2, 0 , 0 , 2 );
 }
 #drawerBody {
+-fx-background-color : #dfe6e9 ;
+
+}
+.vBox{
 -fx-background-color : #dfe6e9 ;
 
 }
