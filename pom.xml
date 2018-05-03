@@ -38,11 +38,6 @@
             <version>5.1.34</version>
         </dependency>
 
-        <!-- Oracle JDBC driver -->
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-        </dependency>
 
         <!-- SQLServer JDBC driver (JTDS) -->
         <!-- http://mvnrepository.com/artifact/net.sourceforge.jtds/jtds%20-->
