@@ -13,7 +13,7 @@ public class Categorie implements Serializable {
     int id;
     String name;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "Product_id")
+    @JoinColumn(name = "category_id")
     List<Produit> produits;
 
 

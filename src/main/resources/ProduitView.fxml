@@ -12,7 +12,7 @@
 <?import com.jfoenix.controls.JFXScrollPane?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane blendMode="HARD_LIGHT" prefHeight="400.0" prefWidth="600.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProduitController">
+<AnchorPane blendMode="HARD_LIGHT" prefHeight="400.0" prefWidth="732.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProduitController">
    <children>
       <VBox alignment="CENTER" layoutX="2.0" layoutY="94.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
@@ -54,11 +54,30 @@
                   <Insets left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <JFXTreeTableView fx:id="treeView" layoutX="40.0" layoutY="207.0" minWidth="-Infinity" prefHeight="228.0" prefWidth="600.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="170.0" VBox.vgrow="ALWAYS">
+            <TableView fx:id="TableView" maxWidth="800.0" prefHeight="200.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="barCodeColumn" prefWidth="100.0" text="BarCode" />
+                <TableColumn fx:id="nomColum" prefWidth="113.0" text="Nom" />
+                  <TableColumn fx:id="categorieColum" prefWidth="149.0" text="Categorie" />
+                  <TableColumn prefWidth="75.0" text="Prix Achat">
+                     <columns>
+                        <TableColumn fx:id="prixTtcColum" prefWidth="75.0" text="Prix TTC" />
+                        <TableColumn fx:id="prixHtColum" prefWidth="75.0" text="Prix HT" />
+                     </columns>
+                  </TableColumn>
+                  <TableColumn prefWidth="75.0" text="Stock">
+                     <columns>
+                        <TableColumn fx:id="plusOneQte" prefWidth="75.0" text="Add" />
+                        <TableColumn fx:id="qteColumn" prefWidth="127.0" text="Quantite" />
+                        <TableColumn fx:id="minusOneQte" prefWidth="75.0" text="Remove" />
+                     </columns>
+                  </TableColumn>
+                  <TableColumn fx:id="remiseColum" prefWidth="75.0" text="Remise" />
+              </columns>
                <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
                </VBox.margin>
-            </JFXTreeTableView>
+            </TableView>
          </children>
       </VBox>
       <HBox alignment="CENTER_LEFT" layoutX="-13.0" prefHeight="70.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #2d3436;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

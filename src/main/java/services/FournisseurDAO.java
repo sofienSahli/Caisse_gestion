@@ -2,8 +2,6 @@ package services;
 
 import Utils.HibernateUtils;
 import entities.Fournisseur;
-import entities.Fournisseur;
-import entities.Produit;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -40,6 +38,7 @@ public class FournisseurDAO {
         fournisseur = session.createQuery("From Fournisseur").list();
         session.getTransaction().commit();
         session.close();
+
         return fournisseur;
     }
 

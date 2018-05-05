@@ -21,7 +21,7 @@ public class Fournisseur implements Serializable{
         this.address = address;
     }
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "Product_id")
+    @JoinColumn(name = "provider_id")
     List<Produit> produits;
 
     @Override

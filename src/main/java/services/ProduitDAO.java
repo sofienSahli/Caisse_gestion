@@ -18,7 +18,8 @@ public class ProduitDAO {
 
     public void add(Produit produit) {
         Transaction transaction = session.beginTransaction();
-        session.save(produit);
+     session.save(produit);
+
         transaction.commit();
         session.close();
 

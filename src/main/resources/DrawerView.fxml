@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="drawerVbox" maxHeight="Infinity" maxWidth="Infinity" prefHeight="419.0" prefWidth="242.0" spacing="10.0" style="-fx-background-color: #636e72;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DrawerController">
+<VBox fx:id="drawerVbox" maxHeight="Infinity" maxWidth="Infinity" prefHeight="419.0" prefWidth="242.0" style="-fx-background-color: #636e72;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DrawerController">
     <children>
         <ImageView fitHeight="187.0" fitWidth="243.0" pickOnBounds="true">
             <image>
@@ -26,9 +26,14 @@
                 <Insets />
             </VBox.margin>
         </ImageView>
-        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="Infinity" text="Gestion de Stock" textFill="#f8f5f5" textOverrun="LEADING_ELLIPSIS" underline="true">
+      <Separator opacity="0.56" prefWidth="200.0" style="-fx-background-color: ;">
+         <effect>
+            <ColorAdjust />
+         </effect>
+      </Separator>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="Infinity" style="-fx-background-color: #FFFF;" text="Gestion de Stock" textOverrun="LEADING_ELLIPSIS">
             <VBox.margin>
-                <Insets bottom="2.0" top="2.0" />
+                <Insets bottom="2.0" />
             </VBox.margin>
             <font>
                 <Font name="Arial" size="24.0" />
@@ -103,12 +108,12 @@
             <ColorAdjust />
          </effect>
         </Separator>
-        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="Infinity" text="Fournisseurs" textAlignment="CENTER" textFill="#f5f3f3" textOverrun="LEADING_ELLIPSIS" underline="true" VBox.vgrow="ALWAYS">
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="Infinity" style="-fx-background-color: #ffff;" text="Fournisseurs" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" VBox.vgrow="ALWAYS">
             <font>
                 <Font name="Arial" size="24.0" />
             </font>
             <VBox.margin>
-                <Insets bottom="2.0" top="2.0" />
+                <Insets bottom="2.0" />
             </VBox.margin>
         </Label>
         <JFXButton fx:id="fournisseurButton" alignment="BASELINE_LEFT" onAction="#fournisseurClicked" prefHeight="30.0" prefWidth="Infinity" text="Listes des Fournisseurs" textFill="#fcfafa">
@@ -141,7 +146,7 @@
             </ripplerFill>
         </JFXButton>
         <Separator opacity="0.55" prefWidth="200.0" style="-fx-background-color: #b2bec3;" />
-        <Label alignment="CENTER" contentDisplay="TEXT_ONLY" prefHeight="28.0" prefWidth="Infinity" text="Caisse" textAlignment="CENTER" textFill="#f5f2f2" textOverrun="LEADING_ELLIPSIS" underline="true" VBox.vgrow="ALWAYS">
+        <Label alignment="CENTER" contentDisplay="TEXT_ONLY" prefHeight="28.0" prefWidth="Infinity" style="-fx-background-color: #Ffff;" text="Caisse" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS" VBox.vgrow="ALWAYS">
             <font>
                 <Font name="Arial" size="24.0" />
             </font>

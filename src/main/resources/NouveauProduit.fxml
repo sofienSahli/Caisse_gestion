@@ -20,14 +20,20 @@
                <children>
                   <VBox alignment="CENTER" layoutX="11.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
                      <children>
-                            <JFXTextField layoutY="61.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" VBox.vgrow="ALWAYS">
+                            <JFXTextField fx:id="nom" layoutY="61.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" VBox.vgrow="ALWAYS">
                                 <font>
                                     <Font name="Arial" size="13.0" />
                                 </font>
                             </JFXTextField>
-                            <JFXTextField layoutX="14.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Reference" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS" />
-                            <JFXTextField layoutX="11.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0" promptText="Reference" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="110.0" VBox.vgrow="ALWAYS" />
-                            <JFXComboBox fx:id="cbFournisseur1" layoutX="11.0" layoutY="161.0" prefHeight="39.0" prefWidth="255.0" promptText="Categorie" unFocusColor="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="160.0" VBox.vgrow="ALWAYS" />
+                            <JFXTextField fx:id="quantity" layoutX="14.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Quantités" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS" />
+                            <JFXTextField fx:id="purchaceTax" layoutX="11.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0" promptText="Tax d'achat" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="110.0" VBox.vgrow="ALWAYS" />
+                        <JFXTextField fx:id="purchacePriceHT" prefHeight="30.0" prefWidth="200.0" promptText="Prix D'achat HT" />
+                        <Label alignment="CENTER_RIGHT" text="Categorie" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                            <JFXComboBox fx:id="cbCategorie" layoutX="11.0" layoutY="161.0" prefHeight="39.0" prefWidth="255.0" promptText="Categorie" unFocusColor="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="160.0" VBox.vgrow="ALWAYS" />
                      </children>
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" />
@@ -35,9 +41,11 @@
                   </VBox>
                   <VBox alignment="CENTER" layoutX="369.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
                      <children>
-                            <JFXTextField layoutX="364.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" promptText="Reference" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                            <JFXTextField layoutX="364.0" layoutY="76.0" prefHeight="30.0" prefWidth="200.0" promptText="Reference" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" />
-                            <JFXTextField layoutX="364.0" layoutY="129.0" prefHeight="30.0" prefWidth="200.0" promptText="Reference" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="110.0" />
+                            <JFXTextField fx:id="barCode" layoutX="364.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" promptText="BarCode" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                            <JFXTextField fx:id="pruchacePrice" layoutX="364.0" layoutY="76.0" prefHeight="30.0" prefWidth="200.0" promptText="Prix d'achat" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" />
+                            <JFXTextField fx:id="sellTax" layoutX="364.0" layoutY="129.0" prefHeight="30.0" prefWidth="200.0" promptText="Tax de vente" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="110.0" />
+                        <JFXTextField fx:id="purchacePriceHTT" prefHeight="30.0" prefWidth="200.0" promptText="Prix d'achat HTT" />
+                        <Label text="Fournisseur" />
                             <JFXComboBox fx:id="cbFournisseur" layoutX="363.0" layoutY="196.0" prefWidth="200.0" promptText="Selectioner un fournisseur" unFocusColor="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="160.0" />
                      </children>
                      <HBox.margin>
@@ -46,8 +54,8 @@
                   </VBox>
                </children>
             </HBox>
-                <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="259.0" prefHeight="49.0" prefWidth="141.0" ripplerFill="#18bc09" styleClass="confirmButton" text="Ajouter" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="150.0" />
-                <JFXButton buttonType="RAISED" layoutX="122.0" layoutY="239.0" prefHeight="49.0" prefWidth="141.0" ripplerFill="#dd0c0c" styleClass="cancelButton" text="Anuler" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="122.0" />
+                <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="259.0" onAction="#add" prefHeight="49.0" prefWidth="141.0" ripplerFill="#18bc09" styleClass="confirmButton" text="Ajouter" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="150.0" />
+                <JFXButton buttonType="RAISED" layoutX="122.0" layoutY="239.0" onAction="#cancel" prefHeight="49.0" prefWidth="141.0" ripplerFill="#dd0c0c" styleClass="cancelButton" text="Anuler" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="122.0" />
             </children>
         </AnchorPane>
         <HBox alignment="CENTER_LEFT" layoutX="-13.0" prefHeight="70.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #2d3436;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

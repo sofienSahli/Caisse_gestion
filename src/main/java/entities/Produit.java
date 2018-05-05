@@ -15,12 +15,10 @@ import java.sql.Date;
 public class Produit extends RecursiveTreeObject<Produit> implements Serializable{
 
     private String nom;
-    private String ref;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Product_id")
     private int id;
-    private int qte;
     private String barcode;
     private int discount;
     private Date date;
@@ -31,12 +29,12 @@ public class Produit extends RecursiveTreeObject<Produit> implements Serializabl
     private double sellTax;
 
 
-    @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id")
     private Categorie categorie;
 
-    @ManyToOne
-    @JoinColumn(name = "provider_id", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "provider_id")
     private Fournisseur fournisseur;
     private double purchasePriceHT;
     private double purchasePriceTTC;
@@ -141,9 +139,6 @@ public class Produit extends RecursiveTreeObject<Produit> implements Serializabl
         this.purchasePriceTTC = purchasePriceTTC;
     }
 
-    public Produit(String nom, String ref, Integer id, Integer qte) {
-
-    }
 
 
     public String getNom() {
@@ -154,13 +149,7 @@ public class Produit extends RecursiveTreeObject<Produit> implements Serializabl
         this.nom = nom;
     }
 
-    public String getRef() {
-        return ref;
-    }
 
-    public void setRef(String ref) {
-        this.ref = ref;
-    }
 
     public int getId() {
         return id;
@@ -170,27 +159,19 @@ public class Produit extends RecursiveTreeObject<Produit> implements Serializabl
         this.id = id;
     }
 
-    public int getQte() {
-        return qte;
-    }
 
-    public void setQte(int qte) {
-        this.qte = qte;
-    }
 
     @Override
     public String toString() {
         return "Produit{" +
                 "nom=" + nom +
-                ", ref=" + ref +
                 ", id=" + id +
-                ", qte=" + qte +
                 ", barcode='" + barcode + '\'' +
                 ", discount=" + discount +
                 ", date=" + date +
                 ", purchacesPrice=" + purchacesPrice +
                 ", purchagcesTax=" + purchagcesTax +
-                ", quantity=" + qte +
+                ", quantity=" + quantity +
                 ", reference='" + reference + '\'' +
                 ", sellTax=" + sellTax +
                 ", categorie=" + categorie +
