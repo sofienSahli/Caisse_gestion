@@ -38,6 +38,7 @@ public class ProduitDAO {
         List produits;
         session.beginTransaction();
         produits = session.createQuery("From Produit").list();
+        session.close();
         return produits;
     }
 

@@ -1,9 +1,11 @@
 package Utils;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtils {
@@ -11,14 +13,11 @@ public class HibernateUtils {
 
     private static SessionFactory buildSessionFactory() {
         try {
-            // Create the ServiceRegistry from hibernate.cfg.xml
-            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()//
-                    .configure().build();
+            final SessionFactory sf = new Configuration()
+                    .configure().buildSessionFactory();
 
-            // Create a metadata sources using the specified service registry.
-            Metadata metadata = new MetadataSources(serviceRegistry).getMetadataBuilder().build();
-
-            return metadata.getSessionFactoryBuilder().build();
+            // factory = new Configuration().configure().buildSessionFactory();
+            return sf;
         } catch (Throwable ex) {
 
             System.err.println("Initial SessionFactory creation failed." + ex);

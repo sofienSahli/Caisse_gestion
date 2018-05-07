@@ -1,27 +1,21 @@
 package controllers;
 
+import Utils.TemporalyData;
 import com.jfoenix.controls.JFXComboBox;
+import entities.Categorie;
 import entities.Fournisseur;
 import entities.Produit;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import javafx.util.Callback;
-import services.FournisseurDAO;
-import services.ProduitDAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +37,8 @@ public class ProduitController {
 
     @FXML
     private JFXComboBox<Fournisseur> cbFournisseur;
+    @FXML
+    private JFXComboBox<Categorie> cbCategorie;
 
     @FXML
     private TableColumn<ProduitUI, Double> remiseColum;
@@ -59,14 +55,12 @@ public class ProduitController {
 
     public static Controller controller;
 
-    FournisseurDAO fournisseurDAO;
-    ProduitDAO produitDAO;
-    public static ObservableList<Fournisseur> fournisseurs;
 
     @FXML
     public void initialize() {
         fillFournisseurComboBox();
         initializeTableView();
+        fillCategorieComboBox();
     }
 
 
@@ -83,19 +77,20 @@ public class ProduitController {
 
     }
 
-    private void fillFournisseurComboBox() {
-        fournisseurs = FXCollections.observableArrayList();
-        fournisseurDAO = new FournisseurDAO();
-        fournisseurs.addAll(fournisseurDAO.findAll());
-        for (Fournisseur f : fournisseurs
-                ) {
-            System.out.println(f.getNom() + "\n" + f.getProduits());
-        }
+    private void fillCategorieComboBox() {
+        cbCategorie.getItems().clear();
+        cbCategorie.getItems().addAll(TemporalyData.categories);
+        cbCategorie.valueProperty().addListener((observable, oldValue, newValue) -> {
+            List<Produit> produits = observable.getValue().getProduits();
+            fillTableView(produits);
+        });
+    }
 
+    private void fillFournisseurComboBox() {
         cbFournisseur.getItems().clear();
-        cbFournisseur.getItems().addAll(fournisseurs);
+        cbFournisseur.getItems().addAll(TemporalyData.fournisseurs);
 //        cbFournisseur.setValue(fournisseurs.get(0));
-        fillTableView(fournisseurs.get(0).getProduits());
+        fillTableView(TemporalyData.fournisseurs.get(0).getProduits());
         cbFournisseur.valueProperty().addListener((observable, oldValue, newValue) -> {
             List<Produit> produits = observable.getValue().getProduits();
             fillTableView(produits);
@@ -113,10 +108,14 @@ public class ProduitController {
         if (controller != null) {
             NouveauProduitController.controller = controller;
             controller.loadScene(Controller.NOUVEAU_PRODUIT_URL);
-            NouveauProduitController.listFournisseur = fournisseurs;
 
         }
     }
+
+    public void addCategorie(ActionEvent actionEvent) {
+
+    }
+
 
     //UI class from Entities
     public class ProduitUI {
@@ -298,6 +297,7 @@ public class ProduitController {
             int qte = produit.getQuantity() + 1;
             produit.setQuantity(qte);
             p.setQuantity(qte);
+
         }
 
         private void removeOneProduct(Produit produit, ProduitUI p) {
@@ -305,7 +305,8 @@ public class ProduitController {
             produit.setQuantity(qte);
             p.setQuantity(qte);
         }
-
-
     }
+
+
 }
+

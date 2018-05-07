@@ -44,7 +44,7 @@ public class FournisseurDAO {
 
     public void update(Fournisseur fournisseur) {
         session.beginTransaction();
-        session.delete(fournisseur);
+        session.saveOrUpdate(fournisseur);
         session.getTransaction().commit();
         session.close();
 

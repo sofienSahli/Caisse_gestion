@@ -1,5 +1,6 @@
 package controllers;
 
+import Utils.TemporalyData;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.sun.javafx.tk.Toolkit;
@@ -28,7 +29,6 @@ import java.util.List;
 
 public class NouveauProduitController {
     public static Controller controller;
-    public static ObservableList<Fournisseur> listFournisseur;
     @FXML
     private JFXTextField quantity;
 
@@ -61,8 +61,8 @@ public class NouveauProduitController {
 
     //TODO IMPLEMENTS RUNNABLE FOR BACKGROUND HIVERTE WORK
     public void initialize() {
-        if (listFournisseur != null) {
-            cbFournisseur.setItems(listFournisseur);
+        if (TemporalyData.fournisseurs != null) {
+            cbFournisseur.setItems(TemporalyData.fournisseurs);
         } else {
             fillFournisseurComboBox();
         }
@@ -102,7 +102,7 @@ public class NouveauProduitController {
             goBack();
             Task task = new Task() {
                 @Override
-                protected Object call() throws Exception {
+                protected Object call() {
                     add(produit);
                     return null;
                 }
@@ -149,9 +149,6 @@ public class NouveauProduitController {
 
     private void goBack() {
         controller.loadScene(Controller.PRODUIT_URL);
-        if (ProduitController.fournisseurs == null) {
-            ProduitController.fournisseurs = listFournisseur;
-        }
 
     }
     //Check weither or not textfied is empty

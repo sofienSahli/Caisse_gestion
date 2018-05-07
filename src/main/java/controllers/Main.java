@@ -7,17 +7,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/SplashScreen.fxml"));
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root, screenBounds.getWidth(), screenBounds.getMaxX());
+        Scene scene = new Scene(root, 400, 600);
         scene.getStylesheets().add("Main.css");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
+
         primaryStage.show();
 
     }

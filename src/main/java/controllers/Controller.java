@@ -5,13 +5,19 @@ import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Screen;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -94,5 +100,16 @@ public class Controller implements EventHandler<MouseEvent> {
         translateTransition.setToX(0.0);
         translateTransition.play();
     }
+
+    public static void showDialog(Stage stage, Parent root) {
+        Stage subStage = new Stage();
+        Scene scene = new Scene(root, 250, 250);
+        subStage.setScene(scene);
+        subStage.initOwner(stage);
+        subStage.initModality(Modality.WINDOW_MODAL);
+        subStage.show();
+
+    }
+
 
 }

@@ -18,32 +18,50 @@
             <children>
             <HBox alignment="CENTER" layoutX="11.0" layoutY="11.0" spacing="50.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <VBox alignment="CENTER" layoutX="11.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
+                  <VBox alignment="CENTER" layoutX="11.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" style="-fx-border-image-width: 3; -fx-border-color: #2d3436; -fx-border-radius: 3; -fx-background-color: #636e72;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
                      <children>
-                            <JFXTextField alignment="CENTER" layoutY="61.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" VBox.vgrow="ALWAYS">
+                        <Label text="Produit Selectioné" textFill="#170404" VBox.vgrow="ALWAYS" />
+                            <JFXTextField fx:id="nomFournisseur" alignment="CENTER" layoutY="61.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" VBox.vgrow="ALWAYS">
                                 <font>
                                     <Font name="Arial" size="13.0" />
                                 </font>
                             </JFXTextField>
-                            <JFXTextField alignment="CENTER" layoutX="14.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Numéro" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS" />
+                            <JFXTextField fx:id="numeroFournisseur" alignment="CENTER" layoutX="14.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Numéro" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS" />
+                            <JFXTextField fx:id="addressFournisseur" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" promptText="Address" />
+                            <JFXTextField fx:id="mailFournisseur" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" promptText="Mail" />
+                        <JFXButton buttonType="RAISED" onAction="#update" prefHeight="49.0" prefWidth="141.0" ripplerFill="#18bc09" text="Update" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </JFXButton>
                      </children>
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" />
                      </HBox.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <effect>
+                        <Blend />
+                     </effect>
                   </VBox>
                   <VBox alignment="CENTER" layoutX="369.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
-                     <children>
-                            <JFXTextField alignment="CENTER" layoutX="364.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" promptText="Address" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                            <JFXTextField alignment="CENTER" layoutX="364.0" layoutY="76.0" prefHeight="30.0" prefWidth="200.0" promptText="Mail" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" />
-                     </children>
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" />
                      </HBox.margin>
+                     <children>
+                        <ListView fx:id="listFournisseur" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                     </children>
                   </VBox>
                </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
             </HBox>
-                <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="259.0" prefHeight="49.0" prefWidth="141.0" ripplerFill="#18bc09" styleClass="confirmButton" text="Ajouter" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="150.0" />
-                <JFXButton buttonType="RAISED" layoutX="122.0" layoutY="239.0" prefHeight="49.0" prefWidth="141.0" ripplerFill="#dd0c0c" styleClass="cancelButton" text="Anuler" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="122.0" />
+                <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="259.0" onAction="#addFournisseur" prefHeight="49.0" prefWidth="141.0" ripplerFill="#18bc09" styleClass="confirmButton" text="Ajouter" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="150.0" />
             </children>
         </AnchorPane>
         <HBox alignment="CENTER_LEFT" layoutX="-13.0" prefHeight="70.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #2d3436;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
