@@ -20,7 +20,7 @@
                <children>
                   <VBox alignment="CENTER" layoutX="11.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" style="-fx-border-image-width: 3; -fx-border-color: #2d3436; -fx-border-radius: 3; -fx-background-color: #636e72;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Produit Selectioné" textFill="#170404" VBox.vgrow="ALWAYS" />
+                        <Label text="Produit Selectioné" textFill="#0a0a0a" VBox.vgrow="ALWAYS" />
                             <JFXTextField fx:id="nomFournisseur" alignment="CENTER" layoutY="61.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" VBox.vgrow="ALWAYS">
                                 <font>
                                     <Font name="Arial" size="13.0" />
@@ -29,7 +29,7 @@
                             <JFXTextField fx:id="numeroFournisseur" alignment="CENTER" layoutX="14.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Numéro" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS" />
                             <JFXTextField fx:id="addressFournisseur" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" promptText="Address" />
                             <JFXTextField fx:id="mailFournisseur" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" promptText="Mail" />
-                        <JFXButton buttonType="RAISED" onAction="#update" prefHeight="49.0" prefWidth="141.0" ripplerFill="#18bc09" text="Update" VBox.vgrow="ALWAYS">
+                        <JFXButton buttonType="RAISED" onAction="#update" prefHeight="49.0" prefWidth="141.0" ripplerFill="#18bc09" styleClass="confirmButton" text="Update" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="10.0" />
                            </VBox.margin>
@@ -53,6 +53,11 @@
                         <Insets left="10.0" right="10.0" />
                      </HBox.margin>
                      <children>
+                        <Label text="Liste Fournisseur" underline="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
                         <ListView fx:id="listFournisseur" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>

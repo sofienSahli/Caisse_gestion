@@ -1,6 +1,8 @@
 package controllers;
 
 import com.jfoenix.controls.JFXDrawer;
+import javafx.animation.FadeTransition;
+import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,6 +20,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -79,6 +82,7 @@ public class Controller implements EventHandler<MouseEvent> {
         }
     }
 
+    // ------------------------------------------------------Animation and Scene Loading -------------------
     public void loadScene(String url) {
         try {
             Pane loadPane = FXMLLoader.load(getClass().getResource(url));
@@ -101,9 +105,10 @@ public class Controller implements EventHandler<MouseEvent> {
         translateTransition.play();
     }
 
-    public static void showDialog(Stage stage, Parent root) {
+    public static void showDialog(Stage stage, Parent root, double height, double widht) {
         Stage subStage = new Stage();
-        Scene scene = new Scene(root, 250, 250);
+        subStage.initStyle(StageStyle.UNDECORATED);
+        Scene scene = new Scene(root, widht, height);
         subStage.setScene(scene);
         subStage.initOwner(stage);
         subStage.initModality(Modality.WINDOW_MODAL);
@@ -111,5 +116,20 @@ public class Controller implements EventHandler<MouseEvent> {
 
     }
 
+    public static void rotate(Node node, double fromAngle, double toAngle) {
+        RotateTransition rotateTransition = new RotateTransition(Duration.seconds(2), node);
+        rotateTransition.setFromAngle(fromAngle);
+        rotateTransition.setToAngle(toAngle);
+        rotateTransition.setAutoReverse(true);
+        rotateTransition.setCycleCount(1000);
+        rotateTransition.play();
+    }
+
+    public static void fadIn(Node node, double fromAlpha, double toAlpha) {
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), node);
+        fadeTransition.setFromValue(fromAlpha);
+        fadeTransition.setToValue(toAlpha);
+        fadeTransition.play();
+    }
 
 }

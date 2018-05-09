@@ -45,6 +45,7 @@ public class Fournisseur implements Serializable{
     }
 
     public Fournisseur() {
+        produits = new ArrayList<>() ;
     }
 
     public Fournisseur(int id, String nom, String mail, String tel) {
@@ -52,6 +53,8 @@ public class Fournisseur implements Serializable{
         this.nom = nom;
         this.mail = mail;
         this.tel = tel;
+        produits = new ArrayList<>() ;
+
     }
 
     public Fournisseur(int id, String nom, String mail, String tel, ArrayList<Produit> produits) {
@@ -60,6 +63,7 @@ public class Fournisseur implements Serializable{
         this.mail = mail;
         this.tel = tel;
         this.produits = produits;
+
     }
 
     public int getId() {

@@ -4,19 +4,13 @@ import Utils.TemporalyData;
 import com.jfoenix.controls.JFXTextField;
 import entities.Fournisseur;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import services.FournisseurDAO;
-import services.ProduitDAO;
 
 import java.io.IOException;
 
@@ -56,6 +50,8 @@ public class NouveauFournisseurController {
 
             FournisseurDAO fournisseurDAO = new FournisseurDAO();
             fournisseurDAO.update(currentSelectedFournisseur);
+            TemporalyData.fournisseurs.remove(currentSelectedFournisseur);
+            TemporalyData.fournisseurs.add(currentSelectedFournisseur);
             currentSelectedFournisseur = null;
         }
     }
@@ -72,7 +68,7 @@ public class NouveauFournisseurController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/NouveauFournisseurDialog.fxml"));
             Stage thisSatge = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
-            Controller.showDialog(thisSatge, root);
+            Controller.showDialog(thisSatge, root , 300 , 300 );
         } catch (IOException e) {
             e.printStackTrace();
         }

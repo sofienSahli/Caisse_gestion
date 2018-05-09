@@ -84,11 +84,11 @@
 
 }
 .confirmButton {
-    -fx-background-color : #00b894 ;
+    -fx-background-color : #02ea34 ;
     -fx-text-fill : white  ;
 }
 .confirmButton :hover{
-    -fx-background-color : #55efc4 ;
+    -fx-background-color: #137508 ;
 
 }
 .cancelButton {
@@ -101,3 +101,5 @@
     -fx-background-color : #ff6b6b ;
 
 }
+
+

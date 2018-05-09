@@ -15,11 +15,12 @@ public class FournisseurDAO {
         session = HibernateUtils.getSessionFactory().getCurrentSession();
     }
 
-    public void add(Fournisseur fournisseur) {
+    public Fournisseur add(Fournisseur fournisseur) {
         Transaction transaction = session.beginTransaction();
         session.save(fournisseur);
         transaction.commit();
         session.close();
+        return fournisseur;
 
     }
 

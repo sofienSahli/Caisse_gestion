@@ -12,11 +12,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import services.ProduitDAO;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -132,8 +135,8 @@ public class ProduitController {
 
         ProduitUI(Produit produit) {
 
-            addQte = new Button("add");
-            reduceQte = new Button("remove");
+            addQte = new Button("Modifier");
+            reduceQte = new Button("Supprimer");
             barCode = new SimpleStringProperty(produit.getBarcode());
             name = new SimpleStringProperty(produit.getNom());
             categorie = new SimpleStringProperty(produit.getCategorie().getName());
@@ -294,16 +297,27 @@ public class ProduitController {
         }
 
         private void addOneProduct(Produit produit, ProduitUI p) {
-            int qte = produit.getQuantity() + 1;
-            produit.setQuantity(qte);
-            p.setQuantity(qte);
+            ProduitUpdateController.produit = produit ;
+            ProduitUpdateController.controller = controller ;
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/ProduitUpdateScreen.fxml"));
+                Stage thisSatge = (Stage) nomColum.getTableView().getScene().getWindow();
+                Controller.showDialog(thisSatge, root , 600 , 600);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         }
 
         private void removeOneProduct(Produit produit, ProduitUI p) {
-            int qte = produit.getQuantity() - 1;
-            produit.setQuantity(qte);
-            p.setQuantity(qte);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Etes vous sur de vouloir supprimer le produit  ?", ButtonType.YES, ButtonType.CANCEL);
+            alert.showAndWait();
+
+            if (alert.getResult() == ButtonType.YES) {
+                TemporalyData.produits.remove(produit);
+                ProduitDAO produitDAO = new ProduitDAO();
+                produitDAO.delete(produit.getId());
+            }
         }
     }
 

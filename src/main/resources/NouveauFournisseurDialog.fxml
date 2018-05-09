@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.NouveauFournisseurDialog"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="300.0" prefWidth="300.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NouveauFournisseurDialog">
+   <children>
+      <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" layoutX="21.0" layoutY="21.0" prefHeight="300.0" prefWidth="300.0" spacing="20.0" style="-fx-border-image-width: 3; -fx-border-color: #ffffff; -fx-border-radius: 3; -fx-background-color: #636e72;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" StackPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="label" text="Nouveau Fournisseur" textFill="#eeeeee" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Arial Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="nomFournisseur" alignment="CENTER" layoutY="61.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom " style="-fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff;" unFocusColor="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="numeroFournisseur" alignment="CENTER" layoutX="14.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Telephone" style="-fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff;" unFocusColor="#e4dfdf" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS" />
+                  <JFXTextField fx:id="addressFournisseur" alignment="CENTER" focusColor="#1f54f2" prefHeight="30.0" prefWidth="200.0" promptText="Address" style="-fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff;" unFocusColor="#eeeaea" />
+                  <JFXTextField fx:id="mailFournisseur" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" promptText="Mail" style="-fx-prompt-text-fill: #ffffff; -fx-text-fill: #ffffff;" unFocusColor="WHITE" />
+                  <HBox>
+                     <children>
+                        <JFXButton buttonType="RAISED" onAction="#cancel" prefHeight="49.0" prefWidth="141.0" ripplerFill="#18bc09" styleClass="cancelButton" text="Anuler" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                           <HBox.margin>
+                              <Insets left="5.0" right="2.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" onAction="#update" prefHeight="49.0" prefWidth="141.0" ripplerFill="#18bc09" styleClass="confirmButton" text="Ajouter" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="2.0" right="5.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+               <effect>
+                  <Blend />
+               </effect>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+            <Circle fx:id="innerCircle" fill="#1f93ff00" opacity="0.0" radius="50.0" stroke="#8174e4" strokeDashOffset="2.0" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-stroke-dash-array: 25;" StackPane.alignment="CENTER" />
+            <Circle fx:id="middleCircle" fill="#1f93ff00" opacity="0.0" radius="75.0" stroke="#6e5bff" strokeDashOffset="2.0" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-stroke-dash-array: 50;" />
+            <Circle fx:id="outerCircle" fill="#1f93ff00" opacity="0.0" radius="100.0" stroke="#2406ea" strokeDashOffset="2.0" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeMiterLimit="0.0" strokeType="OUTSIDE" strokeWidth="10.0" style="-fx-stroke-dash-array: 100;" />
+         </children>
+      </StackPane>
+   </children>
 </AnchorPane>
