@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane blendMode="HARD_LIGHT" prefHeight="404.0" prefWidth="913.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CaisseController">
+   <children>
+      <SplitPane dividerPositions="0.1" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="72.0" prefWidth="730.0">
+               <children>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="70.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #2d3436;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label prefHeight="99.0" prefWidth="105.0" text="Caisse" textFill="#e8e5e5" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial" size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </HBox>
+                     </children>
+                     <effect>
+                        <DropShadow color="#61696b" height="36.43" offsetX="2.0" radius="9.1075" spread="0.77" width="2.0" />
+                     </effect>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

@@ -64,6 +64,7 @@ public class ProduitController {
         fillFournisseurComboBox();
         initializeTableView();
         fillCategorieComboBox();
+
     }
 
 

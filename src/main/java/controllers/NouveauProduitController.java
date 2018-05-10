@@ -89,8 +89,7 @@ public class NouveauProduitController {
         categories.addAll(fournisseurDAO.findAll());
         cbCategorie.getItems().clear();
         cbCategorie.getItems().addAll(categories);
-        cbCategorie.setValue(categories.get(0));
-        System.out.println();
+//        cbCategorie.setValue(categories.get(0));
     }
 
     public void add(ActionEvent actionEvent) {
@@ -151,6 +150,7 @@ public class NouveauProduitController {
         controller.loadScene(Controller.PRODUIT_URL);
 
     }
+
     //Check weither or not textfied is empty
     private boolean checkIntegrity(TextField textField) {
         if (textField.getText().trim().isEmpty()) {
@@ -161,6 +161,7 @@ public class NouveauProduitController {
         }
         return true;
     }
+
     //Format textField to get only digits
     private void setFormatter(TextField textField) {
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -169,8 +170,6 @@ public class NouveauProduitController {
             }
         });
     }
-
-
 
 
 }
