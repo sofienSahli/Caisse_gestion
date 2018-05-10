@@ -20,7 +20,7 @@ public class HibernateUtils {
             return sf;
         } catch (Throwable ex) {
 
-            System.err.println("Initial SessionFactory creation failed." + ex.getMessage());
+            System.err.println("Initial SessionFactory creation failed." + ex.getCause());
             throw new ExceptionInInitializerError(ex);
         }
     }
