@@ -151,7 +151,7 @@
                 <Font name="Arial" size="24.0" />
             </font>
         </Label>
-        <JFXButton alignment="BASELINE_LEFT" prefHeight="30.0" prefWidth="Infinity" text="Historique" textFill="#f2f0f0">
+        <JFXButton alignment="BASELINE_LEFT" onAction="#nouvelleCaisse" prefHeight="30.0" prefWidth="Infinity" text="Nouvelle Caisse" textFill="#f2f0f0">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>

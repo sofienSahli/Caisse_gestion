@@ -35,6 +35,7 @@ public class Controller implements EventHandler<MouseEvent> {
     public static final String PRODUIT_URL = "/ProduitView.fxml";
     public static final String NOUVEAU_PRODUIT_URL = "/NouveauProduit.fxml";
     public static final String NOUVEAU_FOURNISSEUR_URL = "/NouveauFournisseur.fxml";
+    public static final String CAISSE_CONTROLLER_URL = "/Caisse.fxml";
 
 
     @FXML

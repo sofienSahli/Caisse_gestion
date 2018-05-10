@@ -34,4 +34,11 @@ public class DrawerController implements EventHandler<MouseEvent> {
         }
 
     }
+
+    public void nouvelleCaisse(ActionEvent actionEvent) {
+        if (mainController != null) {
+            mainController.loadScene(Controller.CAISSE_CONTROLLER_URL);
+            //CaisseController.controller = mainController;
+        }
+    }
 }

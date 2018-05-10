@@ -93,7 +93,7 @@ public class ProduitController {
         cbFournisseur.getItems().clear();
         cbFournisseur.getItems().addAll(TemporalyData.fournisseurs);
 //        cbFournisseur.setValue(fournisseurs.get(0));
-        fillTableView(TemporalyData.fournisseurs.get(0).getProduits());
+      //  fillTableView(TemporalyData.fournisseurs.get(0).getProduits());
         cbFournisseur.valueProperty().addListener((observable, oldValue, newValue) -> {
             List<Produit> produits = observable.getValue().getProduits();
             fillTableView(produits);

@@ -10,6 +10,7 @@ import org.hibernate.annotations.ManyToAny;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Objects;
 
 @Entity
 public class Produit extends RecursiveTreeObject<Produit> implements Serializable{
@@ -163,21 +164,24 @@ public class Produit extends RecursiveTreeObject<Produit> implements Serializabl
 
     @Override
     public String toString() {
-        return "Produit{" +
-                "nom=" + nom +
-                ", id=" + id +
-                ", barcode='" + barcode + '\'' +
-                ", discount=" + discount +
-                ", date=" + date +
-                ", purchacesPrice=" + purchacesPrice +
-                ", purchagcesTax=" + purchagcesTax +
-                ", quantity=" + quantity +
-                ", reference='" + reference + '\'' +
-                ", sellTax=" + sellTax +
-                ", categorie=" + categorie +
-                ", fournisseur=" + fournisseur +
-                ", purchasePriceHT=" + purchasePriceHT +
-                ", purchasePriceTTC=" + purchasePriceTTC +
-                '}';
+        return nom + " \t"+ quantity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Produit produit = (Produit) o;
+        return Objects.equals(barcode, produit.barcode);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(barcode);
+    }
+
+    public Produit(String barcode) {
+        this.barcode = barcode;
     }
 }
