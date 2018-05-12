@@ -113,7 +113,9 @@ public class NouveauProduitController {
     // Make call to Service Add class
     private void add(Produit produit) {
         ProduitDAO produitDAO = new ProduitDAO();
-        produitDAO.add(produit);
+        TemporalyData.produits.add(produitDAO.add(produit));
+
+
     }
 
     // make instance of entity

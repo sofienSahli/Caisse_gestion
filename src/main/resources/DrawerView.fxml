@@ -17,7 +17,7 @@
     <children>
         <ImageView fitHeight="187.0" fitWidth="243.0" pickOnBounds="true">
             <image>
-                <Image url="file:/Users/sofien/Desktop/nativeScript/Gestionde_stock_caisse/Ressources/drawer_background.png" />
+                <Image url="@/Ressources/drawer_background.png" />
             </image>
             <effect>
                 <BoxBlur height="8.11" iterations="0" width="14.33" />
@@ -57,7 +57,7 @@
             <graphic>
                 <ImageView depthTest="ENABLE" fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="file:/Users/sofien/Desktop/nativeScript/Gestionde_stock_caisse/Ressources/warehouse.png" />
+                        <Image url="@/Ressources/warehouse.png" />
                     </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
@@ -71,7 +71,12 @@
                 <BoxBlur />
             </effect>
         </JFXButton>
-        <JFXButton alignment="BASELINE_LEFT" prefHeight="30.0" prefWidth="Infinity" text="Historique" textFill="#f5f2f2">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="Infinity" style="-fx-background-color: #FFFF;" text="Categorie" textOverrun="LEADING_ELLIPSIS">
+         <font>
+            <Font name="Arial" size="24.0" />
+         </font>
+      </Label>
+        <JFXButton alignment="BASELINE_LEFT" onAction="#categorie" prefHeight="30.0" prefWidth="Infinity" text="Categorie" textFill="#f5f2f2">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -84,7 +89,7 @@
             <graphic>
                 <ImageView fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="file:/Users/sofien/Desktop/nativeScript/Gestionde_stock_caisse/Ressources/warehouse.png" />
+                        <Image url="@/Ressources/warehouse.png" />
                     </image>
                <effect>
                   <ColorAdjust brightness="1.0" hue="-0.02" saturation="0.05" />
@@ -129,7 +134,7 @@
             <graphic>
                 <ImageView fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="file:/Users/sofien/Desktop/nativeScript/Gestionde_stock_caisse/Ressources/fournisseur.png" />
+                        <Image url="@/Ressources/fournisseur.png" />
                     </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
@@ -164,7 +169,7 @@
             <graphic>
                 <ImageView fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="file:/Users/sofien/Desktop/nativeScript/Gestionde_stock_caisse/Ressources/money.png" />
+                        <Image url="@/Ressources/money.png" />
                     </image>
                <effect>
                   <ColorAdjust brightness="1.0" />
@@ -180,5 +185,40 @@
                 </LinearGradient>
             </ripplerFill>
         </JFXButton>
+      <Label alignment="CENTER" contentDisplay="TEXT_ONLY" prefHeight="28.0" prefWidth="Infinity" style="-fx-background-color: #Ffff;" text="Exit" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS">
+         <font>
+            <Font name="Arial" size="24.0" />
+         </font>
+      </Label>
+      <Separator opacity="0.55" prefWidth="200.0" style="-fx-background-color: #b2bec3;" />
+      <JFXButton alignment="BASELINE_LEFT" onAction="#exit" prefHeight="30.0" prefWidth="Infinity" text="Exit" textFill="#f2f0f0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <BoxBlur />
+         </effect>
+         <font>
+            <Font name="Apple Color Emoji" size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <ColorAdjust brightness="1.0" />
+               </effect>
+               <image>
+                  <Image url="@/Ressources/money.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <ripplerFill>
+            <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="0.28365384615384615" startX="0.6057692307692308" startY="0.7259615384615384">
+               <stops>
+                  <Stop color="#b50d0d" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </ripplerFill>
+      </JFXButton>
     </children>
 </VBox>

@@ -47,7 +47,7 @@
                            <graphic>
                               <ImageView fitHeight="32.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="file:/Users/sofien/Desktop/nativeScript/Gestionde_stock_caisse/Ressources/add.png" />
+                                    <Image url="@/Ressources/add.png" />
                                  </image>
                                  <effect>
                                     <Blend />
@@ -65,7 +65,7 @@
                            <graphic>
                               <ImageView fitHeight="32.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="file:/Users/sofien/Desktop/nativeScript/Gestionde_stock_caisse/Ressources/add.png" />
+                                    <Image url="@/Ressources/add.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -127,7 +127,7 @@
             </Label>
             <ImageView fitHeight="20.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/Users/sofien/Desktop/nativeScript/Gestionde_stock_caisse/Ressources/search.png" />
+                  <Image url="@/Ressources/search.png" />
                </image>
                <HBox.margin>
                   <Insets top="16.0" />

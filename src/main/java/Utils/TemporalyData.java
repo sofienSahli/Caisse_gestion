@@ -49,6 +49,15 @@ public class TemporalyData {
         }
     }
 
-
-
+    public static Produit findIdByCodabar(String codabar) {
+        if (produits.contains(new Produit(codabar))) {
+            int index = produits.indexOf(new Produit(codabar));
+            return produits.get(index);
+        }
+        return null;
+    }
 }
+
+
+
+

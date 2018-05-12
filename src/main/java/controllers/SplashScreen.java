@@ -36,7 +36,7 @@ public class SplashScreen {
                 TemporalyData.loadData();
 
                 try {
-                    return FXMLLoader.<Parent>load(getClass().getResource("/sample.fxml"));
+                    return FXMLLoader.<Parent>load(getClass().getResource("/Login.fxml"));
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -78,12 +78,10 @@ public class SplashScreen {
     }
 
     private void dataColected(Parent root) {
-
+        ((Stage) outerCircle.getScene().getWindow()).close();
         Stage primaryStage = new Stage();
 
-        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        Scene scene = new Scene(root, screenBounds.getWidth(), screenBounds.getHeight());
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        Scene scene = new Scene(root, 400, 400);
 
         scene.getStylesheets().add("Main.css");
         primaryStage.setScene(scene);

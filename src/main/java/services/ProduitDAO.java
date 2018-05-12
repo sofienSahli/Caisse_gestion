@@ -16,13 +16,13 @@ public class ProduitDAO {
         session = HibernateUtils.getSessionFactory().getCurrentSession();
     }
 
-    public void add(Produit produit) {
+    public Produit add(Produit produit) {
         Transaction transaction = session.beginTransaction();
         session.save(produit);
 
         transaction.commit();
         session.close();
-
+        return produit;
     }
 
     public void delete(int id) {

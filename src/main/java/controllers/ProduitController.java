@@ -64,6 +64,7 @@ public class ProduitController {
         fillFournisseurComboBox();
         initializeTableView();
         fillCategorieComboBox();
+        fillTableView(TemporalyData.produits);
 
     }
 
@@ -94,7 +95,7 @@ public class ProduitController {
         cbFournisseur.getItems().clear();
         cbFournisseur.getItems().addAll(TemporalyData.fournisseurs);
 //        cbFournisseur.setValue(fournisseurs.get(0));
-      //  fillTableView(TemporalyData.fournisseurs.get(0).getProduits());
+        //  fillTableView(TemporalyData.fournisseurs.get(0).getProduits());
         cbFournisseur.valueProperty().addListener((observable, oldValue, newValue) -> {
             List<Produit> produits = observable.getValue().getProduits();
             fillTableView(produits);
@@ -298,12 +299,12 @@ public class ProduitController {
         }
 
         private void addOneProduct(Produit produit, ProduitUI p) {
-            ProduitUpdateController.produit = produit ;
-            ProduitUpdateController.controller = controller ;
+            ProduitUpdateController.produit = produit;
+            ProduitUpdateController.controller = controller;
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/ProduitUpdateScreen.fxml"));
                 Stage thisSatge = (Stage) nomColum.getTableView().getScene().getWindow();
-                Controller.showDialog(thisSatge, root , 600 , 600);
+                Controller.showDialog(thisSatge, root, 600, 600);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -318,6 +319,7 @@ public class ProduitController {
                 TemporalyData.produits.remove(produit);
                 ProduitDAO produitDAO = new ProduitDAO();
                 produitDAO.delete(produit.getId());
+                fillTableView(TemporalyData.produits);
             }
         }
     }

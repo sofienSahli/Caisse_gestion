@@ -138,3 +138,11 @@
     -fx-background-color: -fx-focus-color;
 }
 
+.list-view {
+    -fx-font-size: 16pt;
+    -fx-font-family: "Segoe UI Light";
+        -fx-text-fill: white;
+        -fx-alignment: center-top;
+        -fx-background-color : #636e72;
+
+}

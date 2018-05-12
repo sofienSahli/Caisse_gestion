@@ -2,7 +2,6 @@ package services;
 
 import Utils.HibernateUtils;
 import entities.Categorie;
-import entities.Categorie;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -15,12 +14,12 @@ public class CategorieDAO {
         session = HibernateUtils.getSessionFactory().getCurrentSession();
     }
 
-    public void add(Categorie categorie) {
+    public Categorie add(Categorie categorie) {
         Transaction transaction = session.beginTransaction();
         session.save(categorie);
         transaction.commit();
         session.close();
-
+        return categorie;
     }
 
     public void delete(int id) {
@@ -38,6 +37,7 @@ public class CategorieDAO {
         categories = session.createQuery("From Categorie").list();
         session.getTransaction().commit();
         session.close();
+
         return categories;
     }
 

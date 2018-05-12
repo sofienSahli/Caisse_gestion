@@ -41,4 +41,15 @@ public class DrawerController implements EventHandler<MouseEvent> {
             //CaisseController.controller = mainController;
         }
     }
+
+    public void exit(ActionEvent actionEvent) {
+        System.exit(0);
+    }
+
+    public void categorie(ActionEvent actionEvent) {
+        if (mainController != null) {
+            mainController.loadScene(Controller.NOUVEL_CATEGORIE_CONTROLLER);
+            NouvelleCategorieController.controller = mainController;
+        }
+    }
 }

@@ -60,68 +60,80 @@ public class CaisseController {
     private Produit currentProduit;
     private int currentIndex;
     private ObservableList<Produit> observableList;
+    private String showedProductCodabar;
 
     @FXML
     public void initialize() {
-        observableList = FXCollections.observableArrayList();
-        currentCaisse = new Caisse(new ArrayList<Produit>());
-
-        totalCaisse.setText("0 Dt");
+        disableButtons();
+        currentCaisse = new Caisse(new ArrayList<>());
         codabar.textProperty().addListener((observable, oldValue, newValue) -> {
-            currentProduit = new Produit(newValue);
-            if (TemporalyData.produits.contains(currentProduit)) {
-                currentIndex = TemporalyData.produits.indexOf(currentProduit);
-                currentProduit = TemporalyData.produits.get(currentIndex);
-                nomProduit.setText(currentProduit.getNom());
-                currentProduitChanceGlistener();
-                printQuatity(1);
-
+            Produit p = TemporalyData.findIdByCodabar(newValue);
+            if (p != null) {
+                currentProduit = p;
+                setUpProduit();
+                enableButtons();
             }
-
         });
-        refreshList();
+
+
     }
 
-    private void currentProduitChanceGlistener() {
-        tfNomProduit.setText(currentProduit.getNom());
-        prixTTC.setText(currentProduit.getPurchasePriceTTC() + "  dt");
-        PrixHT.setText(currentProduit.getPurchasePriceHT() + "  dt");
-        reduction.setText(currentProduit.getDiscount() + " %");
+    private void setUpProduit() {
+        currentIndex = 1;
+        nomProduit.setText(currentProduit.getNom());
+        quantity.setText(currentIndex + "");
+        setUpInterfaceProduit(currentProduit);
     }
 
-    private void refreshList() {
-        observableList.clear();
-        observableList.addAll(currentCaisse.getProduits());
-
-        contenuCart.setItems(observableList);
-        totalCaisse.setText(currentCaisse.getTotalCaisse() + " DT");
+    private void setUpInterfaceProduit(Produit p) {
+        tfNomProduit.setText(p.getNom());
+        PrixHT.setText(p.getPurchasePriceHT() + "  DT");
+        prixTTC.setText(p.getPurchasePriceTTC() + "  DT");
+        reduction.setText(p.getDiscount() + " Dts");
+        showedProductCodabar = p.getBarcode();
     }
 
-
-    public void minus(ActionEvent actionEvent) {
-        printQuatity(currentProduit.getQuantity() - 1);
-    }
 
     public void plus(ActionEvent actionEvent) {
-        printQuatity(currentProduit.getQuantity() + 1);
+        currentIndex++;
+        quantity.setText(currentIndex + " ");
+    }
+
+    public void minus(ActionEvent actionEvent) {
+        if (currentIndex - 1 == 0) {
+            currentIndex = 1;
+        } else {
+            currentIndex--;
+        }
+        quantity.setText(currentIndex + " ");
+
+    }
+
+    private void disableButtons() {
+        addToCart.setDisable(true);
+        plusProduct.setDisable(true);
+        minusProduct.setDisable(true);
+    }
+
+    private void enableButtons() {
+        addToCart.setDisable(false);
+        plusProduct.setDisable(false);
+        minusProduct.setDisable(false);
 
     }
 
     public void addTocart(ActionEvent actionEvent) {
-        int qte = Integer.parseInt(quantity.getText());
-        currentProduit.setQuantity(qte);
-        currentCaisse.addProductToCaisse(currentProduit);
-        refreshList();
-
-    }
-
-    private void printQuatity(int qte) {
-        currentProduit.setQuantity(qte);
-        quantity.setText("" + currentProduit.getQuantity());
+        currentCaisse.addProductToCaisse(currentProduit, currentIndex);
+        currentIndex = 1;
+        quantity.setText(currentIndex + " ");
+        totalCaisse.setText(currentCaisse.getTotalCaisse() + "  Dt");
+        contenuCart.setItems(FXCollections.observableArrayList(currentCaisse.getProduits()));
+        disableButtons();
     }
 
     public void supprimer(ActionEvent actionEvent) {
         currentCaisse.removeProductFromCaisse(currentProduit);
-        refreshList();
+        totalCaisse.setText(currentCaisse.getTotalCaisse()+" Dt");
+        contenuCart.setItems(FXCollections.observableArrayList(currentCaisse.getProduits()));
     }
 }

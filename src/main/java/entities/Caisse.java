@@ -1,6 +1,5 @@
 package entities;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -21,20 +20,21 @@ public class Caisse implements Serializable {
     }
 
     private void calculateTotalCaisse() {
-        totalCaisse = 0.0 ;
+        totalCaisse = 0.0;
         for (Produit p : produits) {
             double prixTotalProd = p.getQuantity() * p.getPurchasePriceTTC();
             totalCaisse += prixTotalProd;
         }
     }
 
-    public void addProductToCaisse(Produit p) {
-        if(!produits.contains(p)){
+    public void addProductToCaisse(Produit p, int quantity) {
+        if (!produits.contains(p)) {
+            p.setQuantity(quantity);
             produits.add(p);
             calculateTotalCaisse();
-        }else {
+        } else {
             produits.remove(p);
-            addProductToCaisse(p);
+            addProductToCaisse(p, quantity);
         }
 
     }

@@ -13,20 +13,30 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
+@Table(name = "product")
 public class Produit extends RecursiveTreeObject<Produit> implements Serializable{
 
-    private String nom;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Product_id")
+    @Column(name = "id")
     private int id;
+    @Column(name = "barCode")
     private String barcode;
+    @Column(name = "name")
+    private String nom;
+    @Column(name = "discount")
     private int discount;
+    @Column(name = "incomeDate")
     private Date date;
+    @Column(name = "purchasePrice")
     private double purchacesPrice;
+    @Column(name = "purchaseTax")
     private double purchagcesTax;
+    @Column(name = "quantity")
     private int quantity;
+    @Column(name = "reference")
     private String reference;
+    @Column(name = "sellTax")
     private double sellTax;
 
 
@@ -37,7 +47,9 @@ public class Produit extends RecursiveTreeObject<Produit> implements Serializabl
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "provider_id")
     private Fournisseur fournisseur;
+    @Column(name = "purchasePriceHT")
     private double purchasePriceHT;
+    @Column(name = "purchasePriceTTC")
     private double purchasePriceTTC;
 
     public Produit() {

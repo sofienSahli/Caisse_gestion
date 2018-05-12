@@ -19,7 +19,7 @@ public class Main extends Application {
         scene.getStylesheets().add("Main.css");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.DECORATED);
 
         primaryStage.show();
 

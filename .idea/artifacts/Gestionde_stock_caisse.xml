@@ -1,16 +1,12 @@
 <component name="ArtifactManager">
-  <artifact type="javafx" build-on-make="true" name="Gestionde_stock_caisse">
+  <artifact type="javafx" name="Gestionde_stock_caisse">
     <output-path>$PROJECT_DIR$/../../Gestionde_stock_caisse</output-path>
-    <properties id="ant-postprocessing">
-      <options enabled="true" />
-    </properties>
     <properties id="javafx-properties">
       <options>
         <option name="appClass" value="controllers.Main" />
         <option name="description" value="" />
         <option name="htmlPlaceholderId" value="" />
-        <option name="nativeBundle" value="exe" />
-        <option name="title" value="Alpha001" />
+        <option name="title" value="jj" />
         <option name="vendor" value="" />
         <option name="version" value="" />
       </options>
