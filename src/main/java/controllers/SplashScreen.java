@@ -33,7 +33,6 @@ public class SplashScreen {
         Task task = new Task() {
             @Override
             protected Object call() {
-                TemporalyData.loadData();
 
                 try {
                     return FXMLLoader.<Parent>load(getClass().getResource("/Login.fxml"));
@@ -51,6 +50,8 @@ public class SplashScreen {
         });
 
         new Thread(task).start();
+        TemporalyData.loadData();
+
     }
 
     private synchronized void rotate() {

@@ -1,21 +1,13 @@
 <component name="ArtifactManager">
-  <artifact type="javafx" name="Gestionde_stock_caisse">
-    <output-path>$PROJECT_DIR$/../../Gestionde_stock_caisse</output-path>
-    <properties id="javafx-properties">
+  <artifact type="javafx-preloader" name="Application">
+    <output-path>$PROJECT_DIR$/../../Application</output-path>
+    <properties id="javafx-preloader-properties">
       <options>
-        <option name="appClass" value="controllers.Main" />
-        <option name="description" value="" />
-        <option name="htmlPlaceholderId" value="" />
-        <option name="nativeBundle" value="exe" />
-        <option name="title" value="jj" />
-        <option name="vendor" value="" />
-        <option name="version" value="" />
+        <option name="preloaderClass" value="controllers.Main" />
       </options>
     </properties>
-    <root id="root">
-      <element id="archive" name="Gestionde_stock_caisse.jar">
-        <element id="module-output" name="Gestionde_stock_caisse" />
-      </element>
+    <root id="archive" name="Application.jar">
+      <element id="module-output" name="Gestionde_stock_caisse" />
       <element id="library" level="project" name="jfoenix-1.10.0" />
       <element id="library" level="project" name="mysql-connector-java-5.1.23-bin" />
       <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.2.2.Final" />
