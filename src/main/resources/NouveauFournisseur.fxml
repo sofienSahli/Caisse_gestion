@@ -58,7 +58,7 @@
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <ListView fx:id="listFournisseur" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                        <ListView fx:id="listFournisseur" prefHeight="200.0" prefWidth="200.0" style="-fx-font-weight: bold; -fx-background-color: -fx-primary;" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
                </children>

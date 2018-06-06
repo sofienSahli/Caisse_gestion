@@ -1,9 +1,11 @@
 package controllers;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import javafx.animation.FadeTransition;
 import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +30,6 @@ import java.io.IOException;
 public class Controller implements EventHandler<MouseEvent> {
     @FXML
     public AnchorPane bodyPage;
-    VBox drawerVbox;
     @FXML
     private JFXDrawer drawer;
 
@@ -41,11 +42,11 @@ public class Controller implements EventHandler<MouseEvent> {
 
     @FXML
     public void initialize() {
-        drawerSetting();
+     //   drawerSetting();
         ProduitController.controller = this;
         loadScene(PRODUIT_URL);
     }
-
+/*
     private void drawerSetting() {
         try {
 
@@ -66,7 +67,7 @@ public class Controller implements EventHandler<MouseEvent> {
 
     }
 
-
+*/
     public void dragged(MouseDragEvent mouseDragEvent) {
 
     }
@@ -132,6 +133,43 @@ public class Controller implements EventHandler<MouseEvent> {
         fadeTransition.setFromValue(fromAlpha);
         fadeTransition.setToValue(toAlpha);
         fadeTransition.play();
+    }
+
+
+   // ---------------------------------------- Navigation Controll ------------------------
+
+    @FXML
+    public void stockButtonClicked() {
+        this.loadScene(Controller.PRODUIT_URL);
+        ProduitController.controller = this;
+    }
+
+
+
+    public void fournisseurClicked(ActionEvent actionEvent) {
+
+            this.loadScene(Controller.NOUVEAU_FOURNISSEUR_URL);
+            NouveauFournisseurController.controller = this;
+
+
+    }
+
+    public void nouvelleCaisse(ActionEvent actionEvent) {
+
+            this.loadScene(Controller.CAISSE_CONTROLLER_URL);
+            //CaisseController.controller = mainController;
+
+    }
+
+    public void exit(ActionEvent actionEvent) {
+        System.exit(0);
+    }
+
+    public void categorie(ActionEvent actionEvent) {
+
+            this.loadScene(Controller.NOUVEL_CATEGORIE_CONTROLLER);
+            NouvelleCategorieController.controller = this;
+
     }
 
 }

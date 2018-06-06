@@ -1,13 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="754.0" prefWidth="901.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
-   <left>
-      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" onMouseDragOver="#dragged" BorderPane.alignment="TOP_CENTER" />
-   </left>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="754.0" prefWidth="901.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
    <center>
       <AnchorPane fx:id="bodyPage" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
+   <top>
+      <HBox alignment="CENTER_LEFT" maxHeight="70.0" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: -fx-primary;">
+         <children>
+            <JFXButton buttonType="RAISED" maxHeight="70.0" minHeight="70.0" onAction="#stockButtonClicked" prefHeight="70.0" styleClass="naviation-buttons" text="Inventaire">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView depthTest="ENABLE" fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <ColorAdjust brightness="1.0" />
+                     </effect>
+                     <image>
+                        <Image url="@/Ressources/warehouse.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <JFXButton maxHeight="70.0" minHeight="70.0" onAction="#categorie" prefHeight="70.0" styleClass="naviation-buttons" text="Categorie">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <ColorAdjust brightness="1.0" hue="-0.02" saturation="0.05" />
+                     </effect>
+                     <image>
+                        <Image url="@/Ressources/warehouse.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <JFXButton fx:id="fournisseurButton" maxHeight="70.0" minHeight="70.0" onAction="#fournisseurClicked" prefHeight="70.0" styleClass="naviation-buttons" text="Fournisseur">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <ColorAdjust brightness="1.0" />
+                     </effect>
+                     <image>
+                        <Image url="@/Ressources/fournisseur.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <JFXButton maxHeight="70.0" minHeight="70.0" onAction="#nouvelleCaisse" prefHeight="70.0" styleClass="naviation-buttons" text="Caisse">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <ColorAdjust brightness="1.0" />
+                     </effect>
+                     <image>
+                        <Image url="@/Ressources/money.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <JFXButton maxHeight="70.0" minHeight="70.0" onAction="#exit" prefHeight="70.0" styleClass="naviation-buttons" text="Quitter" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                           <effect>
+                              <ColorAdjust brightness="1.0" />
+                           </effect>
+                           <image>
+                              <Image url="@/Ressources/money.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children></HBox>
+   </top>
 </BorderPane>

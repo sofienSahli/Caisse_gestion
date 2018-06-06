@@ -25,6 +25,11 @@
                                     <Font name="Arial" size="13.0" />
                                 </font>
                             </JFXTextField>
+                        <JFXTextField fx:id="reference" prefHeight="30.0" prefWidth="200.0" promptText="Reference ">
+                           <font>
+                              <Font name="Arial" size="13.0" />
+                           </font>
+                        </JFXTextField>
                             <JFXTextField fx:id="quantity" layoutX="14.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Quantités" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS" />
                             <JFXTextField fx:id="purchaceTax" layoutX="11.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0" promptText="Tax d'achat" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="110.0" VBox.vgrow="ALWAYS" />
                         <JFXTextField fx:id="purchacePriceHT" prefHeight="30.0" prefWidth="200.0" promptText="Prix D'achat HT" />

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.effect.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane blendMode="HARD_LIGHT" prefHeight="640.0" prefWidth="1000.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CaisseController">
    <children>
@@ -79,7 +78,7 @@
                                     <Insets left="3.0" right="3.0" />
                                  </HBox.margin>
                               </Separator>
-                              <Label fx:id="nomProduit" contentDisplay="CENTER" prefHeight="61.0" prefWidth="230.0" text="Nom Produit" textFill="#2c2c2c">
+                              <Label fx:id="nomProduit" contentDisplay="CENTER" prefHeight="61.0" prefWidth="230.0" text="Nom Produit" textFill="#2c2c2c" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -129,20 +128,20 @@
                               </Button>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <VBox alignment="CENTER_LEFT" prefHeight="504.0" prefWidth="473.0" spacing="20.0" style="-fx-border-image-width: 3; -fx-border-color: #2d3436; -fx-border-radius: 3; -fx-background-color: #636e72;" HBox.hgrow="NEVER">
+                              <VBox alignment="CENTER_LEFT" prefHeight="504.0" prefWidth="473.0" spacing="20.0" style="-fx-border-image-width: 3; -fx-border-color: #2d3436; -fx-border-radius: 3; -fx-background-color: #636e72;">
                                  <children>
                                     <Label text="Produit Selectioné" textFill="#0a0a0a" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font size="18.0" />
                                        </font></Label>
-                                    <Label prefHeight="23.0" prefWidth="193.0" text="Nom du  Produit">
+                                    <Label prefHeight="23.0" prefWidth="193.0" text="Nom du  Produit" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField fx:id="tfNomProduit" alignment="CENTER" editable="false" layoutY="61.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" VBox.vgrow="ALWAYS">
+                                    <JFXTextField fx:id="tfNomProduit" alignment="TOP_LEFT" editable="false" layoutY="61.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font name="Arial" size="19.0" />
                                        </font>
@@ -152,7 +151,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField fx:id="PrixHT" alignment="CENTER" editable="false" layoutX="14.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Prix Hors Tax" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS">
+                                    <JFXTextField fx:id="PrixHT" alignment="TOP_LEFT" editable="false" layoutX="14.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Prix Hors Tax" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font size="19.0" />
                                        </font></JFXTextField>
@@ -161,7 +160,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField fx:id="prixTTC" alignment="CENTER" editable="false" prefHeight="30.0" prefWidth="200.0" promptText="Prix TTC">
+                                    <JFXTextField fx:id="prixTTC" alignment="TOP_LEFT" editable="false" prefHeight="30.0" prefWidth="200.0" promptText="Prix TTC">
                                        <font>
                                           <Font size="19.0" />
                                        </font></JFXTextField>
@@ -170,11 +169,11 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField fx:id="reduction" alignment="CENTER" editable="false" prefHeight="30.0" prefWidth="200.0" promptText="Reduction">
+                                    <JFXTextField fx:id="reduction" alignment="TOP_LEFT" editable="false" prefHeight="30.0" prefWidth="200.0" promptText="Reduction">
                                        <font>
                                           <Font size="19.0" />
                                        </font></JFXTextField>
-                                    <JFXButton buttonType="RAISED" onAction="#supprimer" prefHeight="27.0" prefWidth="461.0" ripplerFill="#18bc09" styleClass="cancelButton" text="Supprimer de la caisse" VBox.vgrow="ALWAYS">
+                                    <JFXButton buttonType="RAISED" onAction="#supprimer" prefHeight="27.0" prefWidth="552.0" ripplerFill="#18bc09" styleClass="cancelButton" text="Supprimer de la caisse" VBox.vgrow="ALWAYS">
                                        <VBox.margin>
                                           <Insets bottom="10.0" />
                                        </VBox.margin>
@@ -193,14 +192,14 @@
                                     <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
                                  </HBox.margin>
                               </VBox>
-                              <VBox alignment="TOP_CENTER" prefHeight="258.0" prefWidth="408.0" style="-fx-border-image-width: 3; -fx-border-color: #2d3436; -fx-border-radius: 3; -fx-background-color: #636e72;">
+                              <VBox alignment="TOP_CENTER" prefHeight="258.0" prefWidth="408.0" style="-fx-border-image-width: 3; -fx-border-color: #2d3436; -fx-border-radius: 3; -fx-background-color: #636e72;" HBox.hgrow="ALWAYS">
                                  <children>
                                     <Label text="Articles du Panier" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font size="28.0" />
                                        </font>
                                     </Label>
-                                    <JFXListView fx:id="contenuCart" prefHeight="258.0" prefWidth="228.0" style="-fx-background-color: #89cfe0;" VBox.vgrow="ALWAYS">
+                                    <JFXListView fx:id="contenuCart" prefHeight="258.0" prefWidth="228.0" style="-fx-background-color: primary;" VBox.vgrow="ALWAYS">
                                        <VBox.margin>
                                           <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
                                        </VBox.margin>

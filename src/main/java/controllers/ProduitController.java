@@ -2,6 +2,7 @@ package controllers;
 
 import Utils.TemporalyData;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import entities.Categorie;
 import entities.Fournisseur;
 import entities.Produit;
@@ -37,7 +38,8 @@ public class ProduitController {
 
     @FXML
     private TableColumn<ProduitUI, Double> prixTtcColum;
-
+    @FXML
+    private TableColumn<ProduitUI, String> referenceColumn ;
     @FXML
     private JFXComboBox<Fournisseur> cbFournisseur;
     @FXML
@@ -57,7 +59,8 @@ public class ProduitController {
     private TableColumn<ProduitUI, String> plusOneQte;
 
     public static Controller controller;
-
+    @FXML
+    JFXTextField rechercheTF;
 
     @FXML
     public void initialize() {
@@ -65,9 +68,27 @@ public class ProduitController {
         initializeTableView();
         fillCategorieComboBox();
         fillTableView(TemporalyData.produits);
+        rechercheTF.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.equals("")) {
+                List<Produit> list = makeSearch(newValue);
+                if (list != null)
+                    fillTableView(list);
+            } else {
+                fillTableView(TemporalyData.produits);
+            }
+
+        });
+
 
     }
 
+    private List<Produit> makeSearch(String searchQuery) {
+        List<Produit> list;
+        ProduitDAO produitDAO = new ProduitDAO();
+        list = produitDAO.findByString(searchQuery);
+
+        return list;
+    }
 
     private void initializeTableView() {
         prixHtColum.setCellValueFactory(new PropertyValueFactory("prixHT"));
@@ -77,6 +98,7 @@ public class ProduitController {
         categorieColum.setCellValueFactory(new PropertyValueFactory("categorie"));
         qteColumn.setCellValueFactory(new PropertyValueFactory("quantity"));
         prixTtcColum.setCellValueFactory(new PropertyValueFactory("prixTTC"));
+        referenceColumn.setCellValueFactory(new PropertyValueFactory("reference"));
         plusOneQte.setCellValueFactory(new PropertyValueFactory<>("addQte"));
         minusOneQte.setCellValueFactory(new PropertyValueFactory<>("reduceQte"));
 
@@ -117,10 +139,6 @@ public class ProduitController {
         }
     }
 
-    public void addCategorie(ActionEvent actionEvent) {
-
-    }
-
 
     //UI class from Entities
     public class ProduitUI {
@@ -128,6 +146,7 @@ public class ProduitController {
         private SimpleStringProperty barCode;
         private SimpleStringProperty name;
         private SimpleStringProperty categorie;
+        private SimpleStringProperty reference;
         private SimpleIntegerProperty quantity;
         private SimpleDoubleProperty prixHT;
         private SimpleDoubleProperty prixTTC;
@@ -146,6 +165,7 @@ public class ProduitController {
             prixHT = new SimpleDoubleProperty(produit.getPurchasePriceHT());
             prixTTC = new SimpleDoubleProperty(produit.getPurchasePriceTTC());
             remise = new SimpleDoubleProperty(produit.getDiscount());
+            reference = new SimpleStringProperty(produit.getReference());
             this.id = produit.getId();
 
         }
@@ -259,6 +279,17 @@ public class ProduitController {
             this.quantity.set(quantity);
         }
 
+        public String getReference() {
+            return reference.get();
+        }
+
+        public SimpleStringProperty referenceProperty() {
+            return reference;
+        }
+
+        public void setReference(String reference) {
+            this.reference.set(reference);
+        }
     }
 
     //Class to match Product with Product

@@ -60,4 +60,6 @@ public class FournisseurDAO {
         session.close();
         return fournisseur;
     }
+
+
 }

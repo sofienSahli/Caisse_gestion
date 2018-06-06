@@ -58,6 +58,8 @@ public class NouveauProduitController {
 
     @FXML
     private JFXTextField barCode;
+    @FXML
+    private JFXTextField reference;
 
     //TODO IMPLEMENTS RUNNABLE FOR BACKGROUND HIVERTE WORK
     public void initialize() {
@@ -129,6 +131,7 @@ public class NouveauProduitController {
         double taxVente = Double.parseDouble(sellTax.getText());
         int qte = Integer.parseInt(quantity.getText());
 
+        produit.setReference(reference.getText());
         produit.setCategorie(cbCategorie.getValue());
         produit.setFournisseur(cbFournisseur.getValue());
         produit.setNom(nom.getText());

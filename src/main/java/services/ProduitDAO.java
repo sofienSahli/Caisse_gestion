@@ -38,6 +38,7 @@ public class ProduitDAO {
         List produits;
         session.beginTransaction();
         produits = session.createQuery("From Produit").list();
+        session.getTransaction().commit();
         session.close();
         return produits;
     }
@@ -59,5 +60,20 @@ public class ProduitDAO {
         session.close();
         return produit;
     }
+    public List<Produit> findByString(String query) {
+        List produits;
+        session.beginTransaction();
+        produits = session.createQuery("From Produit where nom like concat('%',:query,'%') " +
+                "or reference like concat('%',:query,'%') " +
+                "or fournisseur like  concat('%',:query,'%') or " +
+                "categorie  like  concat('%',:query,'%') ")
+                .setParameter("query", query)
+                .list();
+
+        session.getTransaction().commit();
+        session.close();
+        return produits;
+    }
+
 
 }

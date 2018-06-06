@@ -7,12 +7,14 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name="provider")
 public class Fournisseur implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nom, mail, tel, address;
-
+    private String mail, tel, address;
+    @Column(name = "name")
+    private String nom;
     public String getAddress() {
         return address;
     }
@@ -105,4 +107,5 @@ public class Fournisseur implements Serializable{
     public void setProduits(ArrayList<Produit> produits) {
         this.produits = produits;
     }
+
 }

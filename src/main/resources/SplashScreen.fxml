@@ -23,7 +23,7 @@
             </Label>
          </children>
       </StackPane>
-      <Label alignment="CENTER" layoutX="206.0" layoutY="370.0" text="Version 0.1 05/2108" textAlignment="CENTER" textFill="#797777" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Label alignment="CENTER" layoutX="206.0" layoutY="370.0" text="Version 1.0 06/2108" textAlignment="CENTER" textFill="#797777" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
             <Font size="19.0" />
          </font>

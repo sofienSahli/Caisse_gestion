@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="drawerVbox" maxHeight="Infinity" maxWidth="Infinity" prefHeight="419.0" prefWidth="242.0" style="-fx-background-color: #636e72;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DrawerController">
+<VBox fx:id="drawerVbox" maxHeight="Infinity" maxWidth="400.0" prefHeight="419.0" prefWidth="200.0" style="-fx-background-color: #636e72;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DrawerController">
     <children>
         <ImageView fitHeight="187.0" fitWidth="243.0" pickOnBounds="true">
             <image>

@@ -12,33 +12,45 @@
 <?import com.jfoenix.controls.JFXScrollPane?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane blendMode="HARD_LIGHT" prefHeight="400.0" prefWidth="732.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProduitController">
+<AnchorPane blendMode="HARD_LIGHT" prefHeight="400.0" prefWidth="1177.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProduitController">
    <children>
-      <VBox alignment="CENTER" layoutX="2.0" layoutY="94.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <VBox alignment="CENTER" layoutX="2.0" layoutY="94.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER" fillHeight="false" layoutX="10.0" layoutY="56.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0" VBox.vgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" fillHeight="false" spacing="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
                <children>
-                  <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                  <VBox spacing="5.0">
                      <children>
                         <Label layoutX="38.0" layoutY="67.0" text="Fournisseur :" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" VBox.vgrow="ALWAYS">
                            <font>
                               <Font name="Apple Braille" size="13.0" />
                            </font>
                         </Label>
-                        <JFXComboBox fx:id="cbFournisseur" layoutX="14.0" layoutY="102.0" prefWidth="200.0" promptText="Selectioner un fournisseur" unFocusColor="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" VBox.vgrow="ALWAYS" />
+                        <JFXComboBox fx:id="cbFournisseur" layoutX="14.0" layoutY="102.0" maxHeight="50.0" maxWidth="350.0" prefHeight="40.0" prefWidth="300.0" promptText="Selectioner un fournisseur" unFocusColor="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" maxWidth="350.0" prefHeight="200.0" prefWidth="300.0">
+                     <children>
                         <Label text="Categorie :">
                            <font>
                               <Font name="Apple Braille" size="13.0" />
                            </font>
                         </Label>
-                        <JFXComboBox fx:id="cbCategorie" prefWidth="200.0" promptText="Selectioner une Categorie" unFocusColor="WHITE" />
+                        <JFXComboBox fx:id="cbCategorie" maxHeight="50.0" prefHeight="40.0" prefWidth="356.0" promptText="Selectioner une Categorie" unFocusColor="WHITE" />
+                     </children></VBox>
+                  <VBox alignment="CENTER_LEFT" maxWidth="350.0" prefHeight="200.0" prefWidth="300.0">
+                     <children>
+                        <Label text="Recherche :">
+                           <font>
+                              <Font name="Apple Braille" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="rechercheTF" alignment="CENTER" maxHeight="50.0" prefHeight="40.0" promptText="Recherche" style="-fx-background-color: -fx-primary; -fx-text-fill: white;" />
                      </children>
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="20.0" top="5.0" />
-                     </HBox.margin>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
-                  <VBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                      <children>
                         <JFXButton buttonType="RAISED" contentDisplay="TOP" defaultButton="true" onAction="#addProduit" prefHeight="70.0" prefWidth="141.0" ripplerFill="#52a4b9" styleClass="confirmButton" text="Ajouter Produit" textFill="WHITE">
                            <font>
@@ -54,42 +66,19 @@
                                  </effect>
                               </ImageView>
                            </graphic>
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
-                        </JFXButton>
-                        <JFXButton buttonType="RAISED" contentDisplay="TOP" defaultButton="true" layoutX="482.0" layoutY="69.0" onAction="#addCategorie" prefHeight="70.0" prefWidth="141.0" ripplerFill="#52a4b9" styleClass="confirmButton" text="Ajouter Categorie" textFill="WHITE" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="80.0" HBox.hgrow="ALWAYS">
-                           <font>
-                              <Font name="Arial" size="13.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="32.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@/Ressources/add.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="20.0" top="5.0" />
-                           </HBox.margin>
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
                         </JFXButton>
                      </children>
-                  </VBox>
+                  </HBox>
                </children>
-               <padding>
-                  <Insets left="20.0" right="20.0" />
-               </padding>
                <VBox.margin>
-                  <Insets left="10.0" right="10.0" top="10.0" />
+                  <Insets top="3.0" />
                </VBox.margin>
             </HBox>
             <TableView fx:id="TableView" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="barCodeColumn" prefWidth="100.0" text="BarCode" />
-                <TableColumn fx:id="nomColum" prefWidth="113.0" text="Nom" />
+                <TableColumn fx:id="barCodeColumn" minWidth="200.0" prefWidth="200.0" text="Codabar" />
+                  <TableColumn fx:id="referenceColumn" minWidth="200.0" prefWidth="200.0" text="Reference" />
+                <TableColumn fx:id="nomColum" minWidth="200.0" prefWidth="200.0" text="Nom" />
                   <TableColumn fx:id="categorieColum" prefWidth="149.0" text="Categorie" />
                   <TableColumn prefWidth="75.0" text="Prix Achat">
                      <columns>
@@ -97,14 +86,14 @@
                         <TableColumn fx:id="prixHtColum" prefWidth="75.0" text="Prix HT" />
                      </columns>
                   </TableColumn>
-                  <TableColumn prefWidth="75.0" text="Stock">
+                  <TableColumn minWidth="50.0" prefWidth="50.0" text="Stock">
                      <columns>
                         <TableColumn fx:id="qteColumn" prefWidth="127.0" text="Quantite" />
                      </columns>
                   </TableColumn>
-                  <TableColumn fx:id="remiseColum" prefWidth="75.0" text="Remise" />
-                  <TableColumn fx:id="plusOneQte" prefWidth="75.0" text="Add" />
-                  <TableColumn fx:id="minusOneQte" prefWidth="75.0" text="Remove" />
+                  <TableColumn fx:id="remiseColum" minWidth="100.0" prefWidth="100.0" text="Remise" />
+                  <TableColumn fx:id="plusOneQte" minWidth="150.0" prefWidth="150.0" text="Add" />
+                  <TableColumn fx:id="minusOneQte" minWidth="150.0" prefWidth="150.0" text="Remove" />
               </columns>
                <VBox.margin>
                   <Insets bottom="10.0" left="2.0" right="2.0" />
@@ -112,39 +101,5 @@
             </TableView>
          </children>
       </VBox>
-      <HBox alignment="CENTER_LEFT" layoutX="-13.0" prefHeight="70.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #2d3436;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <effect>
-            <DropShadow color="#61696b" height="36.43" offsetX="2.0" radius="9.1075" spread="0.77" width="2.0" />
-         </effect>
-         <children>
-            <Label prefHeight="58.0" prefWidth="105.0" text="Stock" textFill="#e8e5e5">
-               <font>
-                  <Font name="Arial" size="24.0" />
-               </font>
-               <HBox.margin>
-                  <Insets top="10.0" />
-               </HBox.margin>
-            </Label>
-            <ImageView fitHeight="20.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/Ressources/search.png" />
-               </image>
-               <HBox.margin>
-                  <Insets top="16.0" />
-               </HBox.margin>
-            </ImageView>
-            <JFXTextField alignment="CENTER" focusColor="#f3f3f5" prefHeight="30.0" prefWidth="151.0" promptText="Rechercher" styleClass="searchView">
-               <HBox.margin>
-                  <Insets left="-12.0" top="5.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="System Bold Italic" size="17.0" />
-               </font>
-            </JFXTextField>
-         </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" />
-         </padding>
-      </HBox>
    </children>
 </AnchorPane>

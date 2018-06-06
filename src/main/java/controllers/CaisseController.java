@@ -64,7 +64,7 @@ public class CaisseController {
 
     @FXML
     public void initialize() {
-        disableButtons();
+
         currentCaisse = new Caisse(new ArrayList<>());
         codabar.textProperty().addListener((observable, oldValue, newValue) -> {
             Produit p = TemporalyData.findIdByCodabar(newValue);
@@ -124,11 +124,12 @@ public class CaisseController {
 
     public void addTocart(ActionEvent actionEvent) {
         currentCaisse.addProductToCaisse(currentProduit, currentIndex);
-        currentIndex = 1;
-        quantity.setText(currentIndex + " ");
+
         totalCaisse.setText(currentCaisse.getTotalCaisse() + "  Dt");
         contenuCart.setItems(FXCollections.observableArrayList(currentCaisse.getProduits()));
         disableButtons();
+        currentIndex = 1;
+        quantity.setText(currentIndex + " ");
     }
 
     public void supprimer(ActionEvent actionEvent) {

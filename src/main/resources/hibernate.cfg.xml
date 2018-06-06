@@ -7,7 +7,7 @@
     <session-factory>
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:8889/db11g</property>
+        <property name="connection.url">jdbc:mysql://localhost:8889/mydb</property>
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
 
