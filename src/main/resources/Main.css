@@ -1,7 +1,7 @@
 
 {
--fx-primary : #636e72;
--fx-secondary : #b2bec3 ;
+-fx-primary : #33691E;
+-fx-secondary : #558B2F ;
 }
 .navbar{
         -fx-background-color: black;
@@ -103,9 +103,9 @@
 }
 
 .table-view {
-    -fx-base: #1d1d1d;
-    -fx-control-inner-background: #1d1d1d;
-    -fx-background-color: #1d1d1d;
+    -fx-base: -fx-primary;
+    -fx-control-inner-background: -fx-primary;
+    -fx-background-color: -fx-primary;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
     -fx-padding: 0;
@@ -121,7 +121,7 @@
     -fx-border-color:
         transparent
         transparent
-        derive(-fx-base, 80%)
+        derive(-fx-primary, 80%)
         transparent;
     -fx-border-insets: 0 10 1 0;
 }
@@ -135,7 +135,7 @@
 }
 
 .table-view:focused .table-row-cell:filled:focused:selected {
-    -fx-background-color: -fx-focus-color;
+    -fx-background-color: -fx-secondary;
     -fx-font-size: 16pt;
 
 }
@@ -150,7 +150,7 @@
         -fx-font-family: "Segoe UI Light";
         -fx-text-fill: white;
         -fx-alignment: center-top;
-        -fx-background-color : -fx-secondary ;
+        -fx-background-color : -fx-primary ;
 
 }
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
@@ -165,7 +165,7 @@
 }
 
 .list-cell:filled:hover {
-    -fx-background-color: #0093ff;
+    -fx-background-color: -fx-secondary;
     -fx-text-fill: white;
 }
 .naviation-buttons{
@@ -174,5 +174,8 @@
 -fx-font-size : 16pt ;
 -fx-font-weight : bold ;
         -fx-font-family: "Segoe UI Light";
-
 }
+
+.list-cell { -fx-text-fill: black; /* 5 */ }
+.list-cell:odd { -fx-background-color: -fx-primary; /* 1 */ }
+.list-cell:even { -fx-background-color: -fx-secondary; /* for information */ }

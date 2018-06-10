@@ -33,6 +33,7 @@ public class Login {
 
     public void login(ActionEvent actionEvent) {
         if (password.getText().equals(PASSWORD)) {
+            password.clear();
             try {
                 dataColected(FXMLLoader.<Parent>load(getClass().getResource("/sample.fxml")));
             } catch (IOException e) {

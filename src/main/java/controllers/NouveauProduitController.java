@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import com.sun.javafx.tk.Toolkit;
 import entities.Categorie;
 import entities.Fournisseur;
+import entities.PriceCalculator;
 import entities.Produit;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -30,6 +31,8 @@ import java.util.List;
 public class NouveauProduitController {
     public static Controller controller;
     @FXML
+    public JFXTextField discount;
+    @FXML
     private JFXTextField quantity;
 
     @FXML
@@ -41,8 +44,6 @@ public class NouveauProduitController {
     @FXML
     private JFXTextField purchacePriceHT;
 
-    @FXML
-    private JFXTextField purchaceTax;
 
     @FXML
     private JFXTextField pruchacePrice;
@@ -74,6 +75,15 @@ public class NouveauProduitController {
         setFormatter(purchacePriceHTT);
         setFormatter(purchacePriceHT);
         setFormatter(pruchacePrice);
+        pruchacePrice.textProperty().addListener((observable, oldValue, newValue) -> {
+            double prixSansDiscount = Double.parseDouble(newValue);
+            int remise = Integer.parseInt(discount.getText());
+            String s = String.format("%.3f", PriceCalculator.calculerPrixRemise(prixSansDiscount , remise));
+            purchacePriceHT.setText(s);
+            double prixSansTVA = Double.parseDouble(purchacePriceHT.getText());
+            String s1 = String.format("%.3f", PriceCalculator.prixTV(prixSansTVA) );
+            purchacePriceHTT.setText(s1);
+        });
     }
 
     private void fillFournisseurComboBox() {
@@ -96,7 +106,7 @@ public class NouveauProduitController {
 
     public void add(ActionEvent actionEvent) {
         if (checkIntegrity(quantity) && checkIntegrity(sellTax) && checkIntegrity(purchacePriceHTT)
-                && checkIntegrity(purchacePriceHT) && checkIntegrity(purchaceTax) && checkIntegrity(pruchacePrice)
+                && checkIntegrity(purchacePriceHT) && checkIntegrity(discount) && checkIntegrity(pruchacePrice)
                 && checkIntegrity(nom) && checkIntegrity(barCode)
                 ) {
             Produit produit = getProductReady();
@@ -127,7 +137,7 @@ public class NouveauProduitController {
         double prixHT = Double.parseDouble(purchacePriceHT.getText());
         double prixHTT = Double.parseDouble(purchacePriceHTT.getText());
         double prixAchat = Double.parseDouble(pruchacePrice.getText());
-        double taxAchat = Double.parseDouble(purchaceTax.getText());
+        int remise = Integer.parseInt(discount.getText());
         double taxVente = Double.parseDouble(sellTax.getText());
         int qte = Integer.parseInt(quantity.getText());
 
@@ -139,7 +149,7 @@ public class NouveauProduitController {
         produit.setPurchasePriceHT(prixHT);
         produit.setPurchasePriceTTC(prixHTT);
         produit.setPurchacesPrice(prixAchat);
-        produit.setPurchagcesTax(taxAchat);
+        produit.setDiscount(remise);
         produit.setSellTax(taxVente);
         produit.setQuantity(qte);
         cbFournisseur.getValue().getProduits().add(produit);
@@ -168,12 +178,12 @@ public class NouveauProduitController {
     }
 
     //Format textField to get only digits
-    private void setFormatter(TextField textField) {
+    private void setFormatter(TextField textField) {/*
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("\\d*")) {
+            if (!newValue.matches("\\d*.")) {
                 textField.setText(newValue.replaceAll("[^\\d]", ""));
             }
-        });
+        });*/
     }
 
 

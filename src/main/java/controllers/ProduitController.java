@@ -11,12 +11,12 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import services.ProduitDAO;
 
@@ -131,7 +131,7 @@ public class ProduitController {
         }
     }
 
-    public void addProduit(ActionEvent actionEvent) {
+    public void addProduit(MouseEvent actionEvent) {
         if (controller != null) {
             NouveauProduitController.controller = controller;
             controller.loadScene(Controller.NOUVEAU_PRODUIT_URL);
@@ -335,7 +335,7 @@ public class ProduitController {
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("/ProduitUpdateScreen.fxml"));
                 Stage thisSatge = (Stage) nomColum.getTableView().getScene().getWindow();
-                Controller.showDialog(thisSatge, root, 600, 600);
+                Controller.showDialog(thisSatge, root, 800, 600);
             } catch (IOException e) {
                 e.printStackTrace();
             }

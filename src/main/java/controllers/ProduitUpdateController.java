@@ -41,6 +41,8 @@ public class ProduitUpdateController {
     private JFXTextField nom;
 
     @FXML
+    private JFXTextField reference ;
+    @FXML
     private JFXComboBox<Categorie> cbCategorie;
 
     @FXML
@@ -112,6 +114,7 @@ public class ProduitUpdateController {
     }
 
     private void fillForm() {
+        reference.setText(produit.getReference());
         quantity.setText(produit.getQuantity() + "");
         barCode.setText(produit.getBarcode());
         nom.setText(produit.getNom());
@@ -141,6 +144,7 @@ public class ProduitUpdateController {
         double taxVente = Double.parseDouble(sellTax.getText());
         int qte = Integer.parseInt(quantity.getText());
 
+        produit.setReference(reference.getText());
         produit.setCategorie(cbCategorie.getValue());
         produit.setFournisseur(cbFournisseur.getValue());
         produit.setNom(nom.getText());

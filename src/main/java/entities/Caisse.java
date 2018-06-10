@@ -1,17 +1,20 @@
 package entities;
 
+import Utils.TemporalyData;
+import services.ProduitDAO;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class Caisse implements Serializable {
-    private ArrayList<Produit> produits;
+    private ArrayList<SoldProduct> produits;
     private double totalCaisse;
 
     private int id;
     private Timestamp date;
 
-    public Caisse(ArrayList<Produit> produits) {
+    public Caisse(ArrayList<SoldProduct> produits) {
         this.produits = produits;
         date = new Timestamp(System.currentTimeMillis());
         if (!produits.isEmpty()) {
@@ -21,34 +24,32 @@ public class Caisse implements Serializable {
 
     private void calculateTotalCaisse() {
         totalCaisse = 0.0;
-        for (Produit p : produits) {
-            double prixTotalProd = p.getQuantity() * p.getPurchasePriceTTC();
-            totalCaisse += prixTotalProd;
+        for (SoldProduct p : produits) {
+
+            totalCaisse += p.getPrixVente() * p.getQunatity();
         }
     }
 
-    public void addProductToCaisse(Produit p, int quantity) {
+    public void addProductToCaisse(SoldProduct p) {
         if (!produits.contains(p)) {
-            p.setQuantity(quantity);
             produits.add(p);
             calculateTotalCaisse();
         } else {
             produits.remove(p);
-            addProductToCaisse(p, quantity);
         }
 
     }
 
-    public void removeProductFromCaisse(Produit p) {
+    public void removeProductFromCaisse(SoldProduct p) {
         produits.remove(p);
         calculateTotalCaisse();
     }
 
-    public ArrayList<Produit> getProduits() {
+    public ArrayList<SoldProduct> getProduits() {
         return produits;
     }
 
-    public void setProduits(ArrayList<Produit> produits) {
+    public void setProduits(ArrayList<SoldProduct> produits) {
         this.produits = produits;
     }
 
@@ -74,5 +75,37 @@ public class Caisse implements Serializable {
 
     public void setDate(Timestamp date) {
         this.date = date;
+    }
+
+    public void clear() {
+        this.produits.clear();
+        calculateTotalCaisse();
+    }
+
+    public void validateCaisse() {
+        for (SoldProduct p : produits) {
+                ProduitDAO produitDAO = new ProduitDAO();
+                Produit prod = produitDAO.findById(p.getId());
+                prod.setQuantity(prod.getQuantity() - p.getQunatity());
+                produitDAO = new ProduitDAO();
+                produitDAO.update(prod);
+
+        }
+    }
+
+    @Override
+    public String toString() {
+
+        String s = " \n \t \t  CONSEIL BEAUTE \n \t \t -----------------  ";
+        for (SoldProduct p : produits) {
+            s = s + "\n" + p.getNom() + "\t" + "Quantite : " + p.getQunatity()  +"Prix unitaire: " + String.format("%.3f",  p.getPrixVente())+"\t"
+                    + String.format("%.3f",  p.getPrixVente() * p.getQunatity()) + "Dt";
+        }
+
+        s = s + " \n \t \t -------------------";
+        s = s + "\n Total Caisse : " + String.format("%.3f",  totalCaisse)+ " DT ";
+        s = s + "\n Date : " + this.getDate() + "\n";
+        s = s + "\t Merci pour votre visite ";
+        return String.valueOf(s);
     }
 }

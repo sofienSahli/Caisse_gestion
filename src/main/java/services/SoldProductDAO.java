@@ -1,22 +1,20 @@
 package services;
 
 import Utils.HibernateUtils;
-import entities.Produit;
+import entities.SoldProduct;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class ProduitDAO {
-
+public class SoldProductDAO {
     Session session;
 
-    public ProduitDAO() {
+    public SoldProductDAO() {
         session = HibernateUtils.getSessionFactory().getCurrentSession();
     }
 
-    public Produit add(Produit produit) {
+    public SoldProduct add(SoldProduct produit) {
         Transaction transaction = session.beginTransaction();
         session.save(produit);
 
@@ -26,7 +24,7 @@ public class ProduitDAO {
     }
 
     public void delete(int id) {
-        Produit p = new Produit();
+        SoldProduct p = new SoldProduct();
         p.setId(id);
         session.beginTransaction();
         session.delete(p);
@@ -34,16 +32,16 @@ public class ProduitDAO {
         session.close();
     }
 
-    public List<Produit> findAll() {
+    public List<SoldProduct> findAll() {
         List produits;
         session.beginTransaction();
-        produits = session.createQuery("From Produit").list();
+        produits = session.createQuery("From SoldProduct").list();
         session.getTransaction().commit();
         session.close();
         return produits;
     }
 
-    public void update(Produit produit) {
+    public void update(SoldProduct produit) {
         session.beginTransaction();
         session.saveOrUpdate(produit);
         session.getTransaction().commit();
@@ -51,24 +49,22 @@ public class ProduitDAO {
 
     }
 
-    public Produit findById(int id) {
+    public SoldProduct findById(int id) {
         session.beginTransaction();
-        Produit produit = new Produit();
+        SoldProduct produit = new SoldProduct();
         produit.setId(id);
-        produit = session.load(Produit.class, produit.getId());
+        produit = session.load(SoldProduct.class, produit.getId());
         produit.getId() ;
         session.getTransaction().commit();
         session.close();
         return produit;
     }
-    public List<Produit> findByString(String query) {
+    public List<SoldProduct> findByString(String query) {
         List produits;
         session.beginTransaction();
-        produits = session.createQuery("From Produit where nom like concat('%',:query,'%') " +
+        produits = session.createQuery("From SoldProduct where nom like concat('%',:query,'%') " +
                 "or reference like concat('%',:query,'%') " +
-                "or fournisseur like  concat('%',:query,'%') or " +
-                "categorie  like  concat('%',:query,'%') " +
-                "or barcode  like  concat('%',:query,'%')")
+                "or codabar  like  concat('%',:query,'%')")
                 .setParameter("query", query)
                 .list();
 
@@ -76,6 +72,5 @@ public class ProduitDAO {
         session.close();
         return produits;
     }
-
 
 }

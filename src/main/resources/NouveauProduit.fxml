@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane blendMode="HARD_LIGHT" prefHeight="400.0" prefWidth="600.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NouveauProduitController">
+<AnchorPane blendMode="HARD_LIGHT" prefHeight="531.0" prefWidth="600.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NouveauProduitController">
     <children>
         <AnchorPane layoutX="10.0" layoutY="100.0" prefHeight="281.0" prefWidth="577.0" styleClass="addProductContainer" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
             <children>
@@ -30,9 +30,8 @@
                               <Font name="Arial" size="13.0" />
                            </font>
                         </JFXTextField>
-                            <JFXTextField fx:id="quantity" layoutX="14.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Quantités" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS" />
-                            <JFXTextField fx:id="purchaceTax" layoutX="11.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0" promptText="Tax d'achat" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="110.0" VBox.vgrow="ALWAYS" />
-                        <JFXTextField fx:id="purchacePriceHT" prefHeight="30.0" prefWidth="200.0" promptText="Prix D'achat HT" />
+                            <JFXTextField fx:id="discount" layoutX="11.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0" promptText="Remise" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="110.0" VBox.vgrow="ALWAYS" />
+                            <JFXTextField fx:id="pruchacePrice" prefHeight="30.0" prefWidth="200.0" promptText="Prix d'achat" />
                         <Label alignment="CENTER_RIGHT" text="Categorie" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets />
@@ -46,10 +45,11 @@
                   </VBox>
                   <VBox alignment="CENTER" layoutX="369.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
                      <children>
+                        <JFXTextField fx:id="purchacePriceHT" prefHeight="30.0" prefWidth="200.0" promptText="Prix D'achat HT" />
+                        <JFXTextField fx:id="purchacePriceHTT" prefHeight="30.0" prefWidth="200.0" promptText="Prix d'achat TTC" />
+                            <JFXTextField fx:id="quantity" prefHeight="30.0" prefWidth="200.0" promptText="Quantités" VBox.vgrow="ALWAYS" />
                             <JFXTextField fx:id="barCode" layoutX="364.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" promptText="BarCode" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                            <JFXTextField fx:id="pruchacePrice" layoutX="364.0" layoutY="76.0" prefHeight="30.0" prefWidth="200.0" promptText="Prix d'achat" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" />
                             <JFXTextField fx:id="sellTax" layoutX="364.0" layoutY="129.0" prefHeight="30.0" prefWidth="200.0" promptText="Tax de vente" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="110.0" />
-                        <JFXTextField fx:id="purchacePriceHTT" prefHeight="30.0" prefWidth="200.0" promptText="Prix d'achat HTT" />
                         <Label text="Fournisseur" />
                             <JFXComboBox fx:id="cbFournisseur" layoutX="363.0" layoutY="196.0" prefWidth="200.0" promptText="Selectioner un fournisseur" unFocusColor="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="160.0" />
                      </children>

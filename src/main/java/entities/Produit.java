@@ -40,6 +40,7 @@ public class Produit extends RecursiveTreeObject<Produit> implements Serializabl
     private double sellTax;
 
 
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Categorie categorie;

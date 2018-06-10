@@ -1,22 +1,20 @@
 package services;
 
 import Utils.HibernateUtils;
-import entities.Fournisseur;
-import entities.Produit;
+import entities.HistoriqueCaisse;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class FournisseurDAO {
-
+public class HistoriqueCaisseDAO {
     Session session;
 
-    public FournisseurDAO() {
+    public HistoriqueCaisseDAO() {
         session = HibernateUtils.getSessionFactory().getCurrentSession();
     }
 
-    public Fournisseur add(Fournisseur fournisseur) {
+    public HistoriqueCaisse add(HistoriqueCaisse fournisseur) {
         Transaction transaction = session.beginTransaction();
         session.save(fournisseur);
         transaction.commit();
@@ -26,7 +24,7 @@ public class FournisseurDAO {
     }
 
     public void delete(int id) {
-        Fournisseur p = new Fournisseur();
+        HistoriqueCaisse p = new HistoriqueCaisse();
         p.setId(id);
         session.beginTransaction();
         session.delete(p);
@@ -34,7 +32,7 @@ public class FournisseurDAO {
         session.close();
     }
 
-    public List<Fournisseur> findAll() {
+    public List<HistoriqueCaisse> findAll() {
         List fournisseur;
         session.beginTransaction();
         fournisseur = session.createQuery("From Fournisseur").list();
@@ -44,7 +42,7 @@ public class FournisseurDAO {
         return fournisseur;
     }
 
-    public void update(Fournisseur fournisseur) {
+    public void update(HistoriqueCaisse fournisseur) {
         session.beginTransaction();
         session.saveOrUpdate(fournisseur);
         session.getTransaction().commit();
@@ -52,19 +50,19 @@ public class FournisseurDAO {
 
     }
 
-    public Fournisseur findById(int id) {
+    public HistoriqueCaisse findById(int id) {
         session.beginTransaction();
-        Fournisseur fournisseur = new Fournisseur();
+        HistoriqueCaisse fournisseur = new HistoriqueCaisse();
         fournisseur.setId(id);
-        fournisseur = session.load(Fournisseur.class, fournisseur.getId());
+        fournisseur = session.load(HistoriqueCaisse.class, fournisseur.getId());
         session.getTransaction().commit();
         session.close();
         return fournisseur;
     }
-    public List<Fournisseur> findByString(String query) {
+    public List<HistoriqueCaisse> findByString(String query) {
         List fournisseurs;
         session.beginTransaction();
-        fournisseurs = session.createQuery("From Fournisseur where nom like concat('%',:query,'%') ")
+        fournisseurs = session.createQuery("From HistoriqueCaisse where nom like concat('%',:query,'%') ")
                 .setParameter("query", query)
                 .list();
 
@@ -72,6 +70,5 @@ public class FournisseurDAO {
         session.close();
         return fournisseurs;
     }
-
 
 }

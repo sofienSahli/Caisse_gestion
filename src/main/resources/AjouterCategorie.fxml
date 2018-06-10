@@ -16,7 +16,7 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="72.0" prefWidth="730.0">
                <children>
-                  <HBox alignment="BOTTOM_LEFT" prefHeight="70.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #2d3436;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="70.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: -fx-primary;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label prefHeight="36.0" prefWidth="193.0" text="Categorie" textFill="#e8e5e5" wrapText="true" HBox.hgrow="ALWAYS">
                            <font>
@@ -43,10 +43,17 @@
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <VBox layoutX="185.0" layoutY="118.0" AnchorPane.bottomAnchor="158.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="118.0">
+                  <VBox layoutX="185.0" layoutY="118.0" spacing="10.0" AnchorPane.bottomAnchor="158.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="118.0">
                      <children>
-                        <TextField fx:id="nomCategorie" layoutX="185.0" layoutY="118.0" prefHeight="55.0" prefWidth="356.0" promptText="Nouvelle Categorie" AnchorPane.bottomAnchor="185.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="370.0" AnchorPane.topAnchor="118.0" VBox.vgrow="ALWAYS" />
-                        <Button layoutX="348.0" layoutY="249.0" mnemonicParsing="false" onAction="#AjouterCategorie" prefHeight="27.0" prefWidth="622.0" styleClass="confirmButton" text="Ajoutera" VBox.vgrow="ALWAYS" />
+                        <JFXTextField fx:id="nomCategorie" alignment="CENTER" promptText="Categorie name">
+                           <font>
+                              <Font name="Arial" size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <Button layoutX="348.0" layoutY="249.0" mnemonicParsing="false" onAction="#AjouterCategorie" prefHeight="27.0" prefWidth="622.0" styleClass="confirmButton" text="Ajouter" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
                </children></AnchorPane>

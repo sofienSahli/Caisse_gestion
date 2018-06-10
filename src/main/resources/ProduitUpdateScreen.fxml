@@ -12,25 +12,65 @@
 
 <AnchorPane blendMode="HARD_LIGHT" prefHeight="400.0" prefWidth="600.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProduitUpdateController">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="100.0" prefHeight="281.0" prefWidth="577.0" styleClass="addProductContainer" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
+      <AnchorPane layoutX="10.0" layoutY="100.0" prefHeight="281.0" prefWidth="577.0" style="-fx-background-color: -fx-primary;" styleClass="addProductContainer" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
          <children>
             <HBox alignment="CENTER" layoutX="11.0" layoutY="11.0" spacing="50.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <VBox alignment="CENTER" layoutX="11.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
+                  <VBox alignment="CENTER_LEFT" layoutX="11.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <JFXTextField fx:id="nom" layoutY="61.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" VBox.vgrow="ALWAYS">
+                        <Label text="Nom " textFill="#eeeeee">
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="nom" layoutY="61.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom " style="-fx-text-fill: white;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial Bold" size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="reference" prefHeight="30.0" prefWidth="200.0" promptText="Reference" />
-                        <JFXTextField fx:id="barCode" prefHeight="30.0" prefWidth="200.0" promptText="BarCode" />
-                        <JFXTextField fx:id="purchaceTax" layoutX="11.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0" promptText="Tax d'achat" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="110.0" VBox.vgrow="ALWAYS" />
-                        <JFXTextField fx:id="purchacePriceHT" prefHeight="30.0" prefWidth="200.0" promptText="Prix D'achat HT" />
-                        <Label alignment="CENTER_RIGHT" text="Categorie" VBox.vgrow="ALWAYS">
+                        <Label text="Reference" textFill="#eeecec">
+                           <font>
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="reference" prefHeight="30.0" prefWidth="200.0" promptText="Reference">
+                           <font>
+                              <Font name="Arial Bold" size="19.0" />
+                           </font></JFXTextField>
+                        <Label text="Codabar" textFill="#f5f3f3">
+                           <font>
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="barCode" prefHeight="30.0" prefWidth="200.0" promptText="BarCode" style="-fx-text-fill: white;">
+                           <font>
+                              <Font name="Arial Bold" size="19.0" />
+                           </font></JFXTextField>
+                        <Label text="Tax d'achat" textFill="#ebe3e3">
+                           <font>
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="purchaceTax" layoutX="11.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0" promptText="Tax d'achat" style="-fx-text-fill: white;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="110.0" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial Bold" size="19.0" />
+                           </font></JFXTextField>
+                        <Label text="Prix Hors taxe" textFill="#fffbfb">
+                           <font>
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="purchacePriceHT" prefHeight="30.0" prefWidth="200.0" promptText="Prix D'achat HT" style="-fx-text-fill: white;">
+                           <font>
+                              <Font size="19.0" />
+                           </font></JFXTextField>
+                        <Label alignment="CENTER_RIGHT" text="Categorie" textFill="#f2f0f0" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
+                           <font>
+                              <Font size="17.0" />
+                           </font>
                         </Label>
                         <JFXComboBox fx:id="cbCategorie" layoutX="11.0" layoutY="161.0" prefHeight="39.0" prefWidth="255.0" promptText="Categorie" unFocusColor="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="160.0" VBox.vgrow="ALWAYS" />
                      </children>
@@ -38,13 +78,48 @@
                         <Insets left="10.0" right="10.0" />
                      </HBox.margin>
                   </VBox>
-                  <VBox alignment="CENTER" layoutX="369.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
+                  <VBox alignment="CENTER_LEFT" layoutX="369.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <JFXTextField fx:id="quantity" prefHeight="30.0" prefWidth="200.0" promptText="Quantités" VBox.vgrow="ALWAYS" />
-                        <JFXTextField fx:id="pruchacePrice" layoutX="364.0" layoutY="76.0" prefHeight="30.0" prefWidth="200.0" promptText="Prix d'achat" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" />
-                        <JFXTextField fx:id="sellTax" layoutX="364.0" layoutY="129.0" prefHeight="30.0" prefWidth="200.0" promptText="Tax de vente" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="110.0" />
-                        <JFXTextField fx:id="purchacePriceHTT" prefHeight="30.0" prefWidth="200.0" promptText="Prix d'achat HTT" />
-                        <Label text="Fournisseur" />
+                        <Label text="Quantité" textFill="#f2f0f0">
+                           <font>
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="quantity" prefHeight="30.0" prefWidth="200.0" promptText="Quantités" style="-fx-text-fill: white;" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial" size="19.0" />
+                           </font></JFXTextField>
+                        <Label text="Prix d'achat" textFill="#ebe3e3">
+                           <font>
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="pruchacePrice" layoutX="364.0" layoutY="76.0" prefHeight="30.0" prefWidth="200.0" promptText="Prix d'achat" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0">
+                           <font>
+                              <Font size="19.0" />
+                           </font></JFXTextField>
+                        <Label text="Taxe de vente" textFill="#eeeaea">
+                           <font>
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="sellTax" layoutX="364.0" layoutY="129.0" prefHeight="30.0" prefWidth="200.0" promptText="Tax de vente" style="-fx-text-fill: white;" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="110.0">
+                           <font>
+                              <Font name="Arial Bold" size="19.0" />
+                           </font></JFXTextField>
+                        <Label text="Prix Hors Taxe" textFill="#ebe5e5">
+                           <font>
+                              <Font name="Arial" size="17.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="purchacePriceHTT" prefHeight="30.0" prefWidth="200.0" promptText="Prix d'achat HTT" style="-fx-text-fill: white;">
+                           <font>
+                              <Font name="Arial Bold" size="19.0" />
+                           </font></JFXTextField>
+                        <Label text="Fournisseur" textFill="#f5f0f0">
+                           <font>
+                              <Font size="17.0" />
+                           </font></Label>
                         <JFXComboBox fx:id="cbFournisseur" layoutX="363.0" layoutY="196.0" prefWidth="200.0" promptText="Selectioner un fournisseur" unFocusColor="WHITE" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="160.0" />
                      </children>
                      <HBox.margin>
@@ -57,9 +132,9 @@
             <JFXButton buttonType="RAISED" layoutX="122.0" layoutY="239.0" onAction="#cancel" prefHeight="49.0" prefWidth="141.0" ripplerFill="#dd0c0c" styleClass="cancelButton" text="Anuler" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="122.0" />
          </children>
       </AnchorPane>
-      <HBox alignment="CENTER_LEFT" layoutX="-13.0" prefHeight="70.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #2d3436;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER_LEFT" layoutX="-13.0" prefHeight="70.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: -fx-primary;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label prefHeight="40.0" prefWidth="221.0" text="Nouveau Produit" textFill="#e8e5e5">
+            <Label prefHeight="40.0" prefWidth="221.0" text="Mise à jour Produit" textFill="#e8e5e5">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>

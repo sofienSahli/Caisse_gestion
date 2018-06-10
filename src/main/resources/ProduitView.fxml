@@ -47,12 +47,16 @@
                               <Font name="Apple Braille" size="13.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="rechercheTF" alignment="CENTER" maxHeight="50.0" prefHeight="40.0" promptText="Recherche" style="-fx-background-color: -fx-primary; -fx-text-fill: white;" />
+                        <JFXTextField fx:id="rechercheTF" alignment="CENTER" maxHeight="50.0" prefHeight="40.0" promptText="Recherche" style="-fx-background-color: -fx-primary; -fx-text-fill: white;">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </JFXTextField>
                      </children>
                   </VBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <JFXButton buttonType="RAISED" contentDisplay="TOP" defaultButton="true" onAction="#addProduit" prefHeight="70.0" prefWidth="141.0" ripplerFill="#52a4b9" styleClass="confirmButton" text="Ajouter Produit" textFill="WHITE">
+                        <JFXButton buttonType="RAISED" contentDisplay="TOP" defaultButton="true" onMouseClicked="#addProduit" prefHeight="70.0" prefWidth="141.0" ripplerFill="#52a4b9" styleClass="addButton" text="Ajouter Produit" textFill="WHITE">
                            <font>
                               <Font name="Arial" size="13.0" />
                            </font>
@@ -82,8 +86,9 @@
                   <TableColumn fx:id="categorieColum" prefWidth="149.0" text="Categorie" />
                   <TableColumn prefWidth="75.0" text="Prix Achat">
                      <columns>
-                        <TableColumn fx:id="prixTtcColum" prefWidth="75.0" text="Prix TTC" />
                         <TableColumn fx:id="prixHtColum" prefWidth="75.0" text="Prix HT" />
+                        <TableColumn fx:id="remiseColum" minWidth="100.0" prefWidth="100.0" text="Remise" />
+                        <TableColumn fx:id="prixTtcColum" prefWidth="75.0" text="Prix TTC" />
                      </columns>
                   </TableColumn>
                   <TableColumn minWidth="50.0" prefWidth="50.0" text="Stock">
@@ -91,7 +96,6 @@
                         <TableColumn fx:id="qteColumn" prefWidth="127.0" text="Quantite" />
                      </columns>
                   </TableColumn>
-                  <TableColumn fx:id="remiseColum" minWidth="100.0" prefWidth="100.0" text="Remise" />
                   <TableColumn fx:id="plusOneQte" minWidth="150.0" prefWidth="150.0" text="Add" />
                   <TableColumn fx:id="minusOneQte" minWidth="150.0" prefWidth="150.0" text="Remove" />
               </columns>

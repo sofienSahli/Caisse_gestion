@@ -18,22 +18,32 @@
             <children>
             <HBox alignment="CENTER" layoutX="11.0" layoutY="11.0" spacing="50.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <VBox alignment="CENTER" layoutX="11.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" style="-fx-border-image-width: 3; -fx-border-color: #2d3436; -fx-border-radius: 3; -fx-background-color: #636e72;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
+                  <VBox alignment="CENTER" layoutX="11.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" style="-fx-border-image-width: 3; -fx-border-color: #2d3436; -fx-border-radius: 3; -fx-background-color: -fx-primary;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="Produit Selectioné" textFill="#0a0a0a" VBox.vgrow="ALWAYS" />
-                            <JFXTextField fx:id="nomFournisseur" alignment="CENTER" layoutY="61.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom " AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" VBox.vgrow="ALWAYS">
+                        <Label text="Produit Selectioné" textFill="#f5f3f3" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial" size="19.0" />
+                           </font></Label>
+                            <JFXTextField fx:id="nomFournisseur" alignment="CENTER" layoutY="61.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom " style="-fx-text-fill: white;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" VBox.vgrow="ALWAYS">
                                 <font>
                                     <Font name="Arial" size="13.0" />
                                 </font>
                             </JFXTextField>
-                            <JFXTextField fx:id="numeroFournisseur" alignment="CENTER" layoutX="14.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Numéro" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS" />
-                            <JFXTextField fx:id="addressFournisseur" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" promptText="Address" />
-                            <JFXTextField fx:id="mailFournisseur" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" promptText="Mail" />
-                        <JFXButton buttonType="RAISED" onAction="#update" prefHeight="49.0" prefWidth="141.0" ripplerFill="#18bc09" styleClass="confirmButton" text="Update" VBox.vgrow="ALWAYS">
+                            <JFXTextField fx:id="numeroFournisseur" alignment="CENTER" layoutX="14.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Numéro" style="-fx-text-fill: white;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS" />
+                            <JFXTextField fx:id="addressFournisseur" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" promptText="Address" style="-fx-text-fill: white;" />
+                            <JFXTextField fx:id="mailFournisseur" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" promptText="Mail" style="-fx-text-fill: white;" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: -fx-secondary;">
+                           <children>
+                              <JFXButton buttonType="RAISED" maxHeight="50.0" onAction="#supprimer" prefHeight="50.0" styleClass="cancelButton" text="Supprimer " />
+                              <JFXButton buttonType="RAISED" maxHeight="50.0" onAction="#update" prefHeight="50.0" prefWidth="141.0" ripplerFill="#18bc09" styleClass="confirmButton" text="Update" />
+                           </children>
                            <VBox.margin>
-                              <Insets bottom="10.0" />
+                              <Insets />
                            </VBox.margin>
-                        </JFXButton>
+                           <padding>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </padding>
+                        </HBox>
                      </children>
                      <HBox.margin>
                         <Insets left="10.0" right="10.0" />
@@ -58,6 +68,14 @@
                               <Font size="17.0" />
                            </font>
                         </Label>
+                        <JFXTextField fx:id="search" alignment="CENTER" promptText="Rechercher">
+                           <VBox.margin>
+                              <Insets bottom="4.0" left="4.0" right="4.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                        </JFXTextField>
                         <ListView fx:id="listFournisseur" prefHeight="200.0" prefWidth="200.0" style="-fx-font-weight: bold; -fx-background-color: -fx-primary;" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
@@ -69,7 +87,7 @@
                 <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="259.0" onAction="#addFournisseur" prefHeight="49.0" prefWidth="141.0" ripplerFill="#18bc09" styleClass="confirmButton" text="Ajouter" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="150.0" />
             </children>
         </AnchorPane>
-        <HBox alignment="CENTER_LEFT" layoutX="-13.0" prefHeight="70.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #2d3436;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <HBox alignment="CENTER_LEFT" layoutX="-13.0" prefHeight="70.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: -fx-primary;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <effect>
                 <DropShadow color="#61696b" height="36.43" offsetX="2.0" radius="9.1075" spread="0.77" width="2.0" />
             </effect>
