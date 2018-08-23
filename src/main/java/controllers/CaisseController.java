@@ -91,11 +91,11 @@ public class CaisseController {
                 enableButtons();
             }
         });
-        contenuCart.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                currentSoldProduct = newValue;
-                setUpProduit();
-            }
+
+
+        contenuCart.setOnMouseClicked(e -> {
+            currentSoldProduct = contenuCart.getSelectionModel().getSelectedItem();
+            setUpSoldProduit();
         });
         search.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.equals("")) {
@@ -116,6 +116,16 @@ public class CaisseController {
                 prixRemise.setText(s);
             }
         });
+    }
+
+    private void setUpSoldProduit() {
+        currentIndex = 1;
+        nomProduit.setText(currentSoldProduct.getNom());
+        quantity.setText(currentIndex + "");
+        tfNomProduit.setText(currentSoldProduct.getNom());
+        String s1 = String.format("%.3f", PriceCalculator.prixVente(currentSoldProduct.getPrixVente(), currentSoldProduct.getDiscount()));
+        prixTTC.setText(s1);
+
     }
 
     private double parsePrice(String price) {
@@ -142,12 +152,8 @@ public class CaisseController {
         currentIndex = 1;
         nomProduit.setText(currentProduit.getNom());
         quantity.setText(currentIndex + "");
-        setUpInterfaceProduit(currentProduit);
-    }
-
-    private void setUpInterfaceProduit(Produit p) {
-        tfNomProduit.setText(p.getNom());
-        String s1 = String.format("%.3f", PriceCalculator.prixVente(p.getPurchasePriceTTC(), p.getSellTax()));
+        tfNomProduit.setText(currentProduit.getNom());
+        String s1 = String.format("%.3f", PriceCalculator.prixVente(currentProduit.getPurchasePriceTTC(), currentProduit.getSellTax()));
         prixTTC.setText(s1);
     }
 
@@ -218,12 +224,12 @@ public class CaisseController {
         double prixVente = PriceCalculator.prixVente(currentProduit.getPurchasePriceTTC(), currentProduit.getSellTax());
         soldProduct.setPrixSansDiscount(prixVente);
 
-        if(!remise.getText().equals("")){
+        if (!remise.getText().equals("")) {
             Integer discount = Integer.parseInt(remise.getText());
             soldProduct.setDiscount(discount);
             Double p = this.parsePrice(prixRemise.getText());
             soldProduct.setPrixVente(p);
-        }else {
+        } else {
             soldProduct.setDiscount(0);
             soldProduct.setPrixVente(prixVente);
         }
@@ -253,7 +259,7 @@ public class CaisseController {
 
     public void printRecipient(ActionEvent actionEvent) {
         print();
-      //  System.out.println(currentCaisse.toString());
+        //  System.out.println(currentCaisse.toString());
         clearAll(null);
     }
 
