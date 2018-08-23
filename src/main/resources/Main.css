@@ -2,6 +2,7 @@
 {
 -fx-primary : #33691E;
 -fx-secondary : #558B2F ;
+-fx-accent : #8e44ad;
 }
 .navbar{
         -fx-background-color: black;
@@ -169,11 +170,11 @@
     -fx-text-fill: white;
 }
 .naviation-buttons{
--fx-background : -fx-secondary ;
--fx-text-fill : white ;
+-fx-background : -fx-primary ;
+-fx-text-fill : black ;
 -fx-font-size : 16pt ;
 -fx-font-weight : bold ;
-        -fx-font-family: "Segoe UI Light";
+-fx-font-family: "Segoe UI Light";
 }
 
 .list-cell { -fx-text-fill: black; /* 5 */ }

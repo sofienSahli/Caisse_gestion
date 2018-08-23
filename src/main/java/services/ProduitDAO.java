@@ -66,8 +66,8 @@ public class ProduitDAO {
         session.beginTransaction();
         produits = session.createQuery("From Produit where nom like concat('%',:query,'%') " +
                 "or reference like concat('%',:query,'%') " +
-                "or fournisseur like  concat('%',:query,'%') or " +
-                "categorie  like  concat('%',:query,'%') " +
+                "or fournisseur.nom like  concat('%',:query,'%') or " +
+                "categorie.name  like  concat('%',:query,'%') " +
                 "or barcode  like  concat('%',:query,'%')")
                 .setParameter("query", query)
                 .list();

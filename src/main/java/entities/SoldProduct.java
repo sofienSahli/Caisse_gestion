@@ -14,16 +14,25 @@ public class SoldProduct {
     double prixSansDiscount ;
     int discount;
     int qunatity;
+    int productID ;
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public void setProductID(int productID) {
+        this.productID = productID;
+    }
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "caisse_id")
-    private Caisse caisse;
+    private HistoriqueCaisse caisse;
 
-    public Caisse getCaisse() {
+    public HistoriqueCaisse getCaisse() {
         return caisse;
     }
 
-    public void setCaisse(Caisse caisse) {
+    public void setCaisse(HistoriqueCaisse caisse) {
         this.caisse = caisse;
     }
 

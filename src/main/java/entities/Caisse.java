@@ -1,10 +1,13 @@
 package entities;
 
 import Utils.TemporalyData;
+import services.HistoriqueCaisseDAO;
 import services.ProduitDAO;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Caisse implements Serializable {
@@ -82,30 +85,36 @@ public class Caisse implements Serializable {
         calculateTotalCaisse();
     }
 
-    public void validateCaisse() {
+    public HistoriqueCaisse validateCaisse() {
         for (SoldProduct p : produits) {
-                ProduitDAO produitDAO = new ProduitDAO();
-                Produit prod = produitDAO.findById(p.getId());
-                prod.setQuantity(prod.getQuantity() - p.getQunatity());
-                produitDAO = new ProduitDAO();
-                produitDAO.update(prod);
-
+            ProduitDAO produitDAO = new ProduitDAO();
+            Produit prod = produitDAO.findById(p.getProductID());
+            prod.setQuantity(prod.getQuantity() - p.getQunatity());
+            produitDAO = new ProduitDAO();
+            produitDAO.update(prod);
         }
+
+        HistoriqueCaisse historiqueCaisse = new HistoriqueCaisse();
+        historiqueCaisse.setDate(Date.valueOf(LocalDate.now()));
+        historiqueCaisse.setTotal_caisse(this.totalCaisse);
+        historiqueCaisse.setProduits(produits);
+        HistoriqueCaisseDAO historiqueCaisseDAO = new HistoriqueCaisseDAO();
+        historiqueCaisseDAO.add(historiqueCaisse);
+        return historiqueCaisse;
     }
 
     @Override
     public String toString() {
-
-        String s = " \n \t \t  CONSEIL BEAUTE \n \t \t -----------------  ";
+       HistoriqueCaisse historiqueCaisse =  validateCaisse();
+        String s = " \n \t \t --------------------------- \n \t \t \b CONSEIL BEAUTE \n \t \t --------------------------- \n ";
+        s = s +"\n caisse numero =   " + historiqueCaisse.getId() +" \n";
         for (SoldProduct p : produits) {
-            s = s + "\n" + p.getNom() + "\t" + "Quantite : " + p.getQunatity()  +"Prix unitaire: " + String.format("%.3f",  p.getPrixVente())+"\t"
-                    + String.format("%.3f",  p.getPrixVente() * p.getQunatity()) + "Dt";
+            s = s + "\n"+p.getQunatity() + "  " + p.getNom() + "     " + p.getDiscount() + "%" + "   " + String.format("%.3f", p.getPrixVente());
         }
-
-        s = s + " \n \t \t -------------------";
-        s = s + "\n Total Caisse : " + String.format("%.3f",  totalCaisse)+ " DT ";
-        s = s + "\n Date : " + this.getDate() + "\n";
-        s = s + "\t Merci pour votre visite ";
+        s = s + " \n \t \t ---------------------------";
+        s = s + "\n Total Caisse : " + String.format("%.3f", totalCaisse) + " DT ";
+        s = s + "\n Date : " + this.getDate() ;
+        s = s + "\t \n Merci pour votre visite ";
         return String.valueOf(s);
     }
 }

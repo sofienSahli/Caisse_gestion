@@ -1,14 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.HistoriqueCaisseController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane blendMode="HARD_LIGHT" prefHeight="640.0" prefWidth="1000.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HistoriqueCaisseController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: -fx-primary;">
+               <children>
+                  <VBox alignment="CENTER" maxWidth="200.0" minWidth="200.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Depuis :" textFill="#f2f0f0">
+                           <font>
+                              <Font name="Arial" size="19.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="start_date" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" maxWidth="200.0" minWidth="200.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Jusqu'au :" textFill="#f2f0f0">
+                           <font>
+                              <Font name="Arial" size="19.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="end_date" />
+                     </children>
+                  </VBox>
+                  <JFXButton buttonType="RAISED" maxWidth="150.0" minWidth="100.0" onMouseClicked="#filtrer" prefWidth="150.0" style="-fx-background-color: -fx-accent;" text="Filtrer" textFill="#f8f0f0">
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </JFXButton>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <JFXTextField fx:id="search_field" alignment="CENTER" focusColor="#ebebeb" maxWidth="300.0" prefWidth="300.0" promptText="Recherche Caisse" unFocusColor="#fffefe">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <JFXListView fx:id="list_caisses" maxWidth="300.0" minWidth="200.0" prefWidth="250.0">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXListView>
+                  <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: -fx-secondary;">
+                           <children>
+                              <Label fx:id="total_caisse" text="Total Caisse" textFill="#ebe9e9">
+                                 <font>
+                                    <Font name="Arial Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="date_caisse" text="Date" textFill="#ebe9e9">
+                                 <font>
+                                    <Font name="Arial Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="numero_caisse" text="Numero" textFill="#ebe9e9">
+                                 <font>
+                                    <Font name="Arial Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="20.0" right="10.0" />
+                           </padding>
+                        </HBox>
+                        <TableView fx:id="liste_produit" prefHeight="340.0" prefWidth="752.0" VBox.vgrow="ALWAYS">
+                           <columns>
+                              <TableColumn fx:id="nom_column" prefWidth="200.0" text="Nom" />
+                              <TableColumn fx:id="codabar_column" prefWidth="200.0" text="Codabar" />
+                              <TableColumn fx:id="reference_column" prefWidth="100.0" text="Reference" />
+                              <TableColumn fx:id="prix_origine_column" prefWidth="100.0" text="Prix Origine" />
+                              <TableColumn fx:id="remise_column" prefWidth="75.0" text="Remise" />
+                              <TableColumn fx:id="prix_vetnte_column" prefWidth="75.0" text="Prix" />
+                           </columns>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

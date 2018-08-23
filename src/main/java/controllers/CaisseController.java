@@ -8,15 +8,13 @@ import entities.Caisse;
 import entities.PriceCalculator;
 import entities.Produit;
 import entities.SoldProduct;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import services.ProduitDAO;
 
 import javax.print.*;
@@ -183,7 +181,7 @@ public class CaisseController {
     }
 
     // Added If case to recalculate price with Discount made for owner to client
-    public void addTocart(ActionEvent actionEvent) {
+    public void addTocart(MouseEvent actionEvent) {
         currentCaisse.addProductToCaisse(soldProduct());
         String s1 = String.format("%.3f", currentCaisse.getTotalCaisse());
         totalCaisse.setText(s1);
@@ -212,18 +210,24 @@ public class CaisseController {
 
     private SoldProduct soldProduct() {
         SoldProduct soldProduct = new SoldProduct();
-        soldProduct.setId(currentProduit.getId());
+        soldProduct.setProductID(currentProduit.getId());
         soldProduct.setCodabar(currentProduit.getBarcode());
         soldProduct.setReference(currentProduit.getReference());
         soldProduct.setQunatity(currentIndex);
         soldProduct.setNom(currentProduit.getNom());
         double prixVente = PriceCalculator.prixVente(currentProduit.getPurchasePriceTTC(), currentProduit.getSellTax());
-        if (remise.getText().equals("")) {
-            soldProduct.setPrixVente(prixVente);
-        } else {
+        soldProduct.setPrixSansDiscount(prixVente);
+
+        if(!remise.getText().equals("")){
+            Integer discount = Integer.parseInt(remise.getText());
+            soldProduct.setDiscount(discount);
             Double p = this.parsePrice(prixRemise.getText());
             soldProduct.setPrixVente(p);
+        }else {
+            soldProduct.setDiscount(0);
+            soldProduct.setPrixVente(prixVente);
         }
+
         return soldProduct;
     }
 
@@ -249,8 +253,7 @@ public class CaisseController {
 
     public void printRecipient(ActionEvent actionEvent) {
         print();
-        //System.out.println(currentCaisse.toString());
-        currentCaisse.validateCaisse();
+      //  System.out.println(currentCaisse.toString());
         clearAll(null);
     }
 
@@ -290,6 +293,8 @@ public class CaisseController {
             e.printStackTrace();
         }
     }
+
+
 }
 
 class PrintJobWatcher {

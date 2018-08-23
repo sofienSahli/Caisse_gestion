@@ -14,9 +14,9 @@
 
 <AnchorPane blendMode="HARD_LIGHT" prefHeight="400.0" prefWidth="600.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NouveauFournisseurController">
     <children>
-        <AnchorPane layoutX="10.0" layoutY="100.0" prefHeight="281.0" prefWidth="577.0" styleClass="addProductContainer" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
+        <AnchorPane layoutX="10.0" layoutY="100.0" prefHeight="281.0" prefWidth="577.0" styleClass="addProductContainer" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
             <children>
-            <HBox alignment="CENTER" layoutX="11.0" layoutY="11.0" spacing="50.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER" layoutX="11.0" layoutY="11.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <VBox alignment="CENTER" layoutX="11.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" style="-fx-border-image-width: 3; -fx-border-color: #2d3436; -fx-border-radius: 3; -fx-background-color: -fx-primary;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
                      <children>
@@ -32,10 +32,10 @@
                             <JFXTextField fx:id="numeroFournisseur" alignment="CENTER" layoutX="14.0" layoutY="200.0" prefHeight="30.0" prefWidth="200.0" promptText="Numéro" style="-fx-text-fill: white;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS" />
                             <JFXTextField fx:id="addressFournisseur" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" promptText="Address" style="-fx-text-fill: white;" />
                             <JFXTextField fx:id="mailFournisseur" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" promptText="Mail" style="-fx-text-fill: white;" />
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: -fx-secondary;">
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: -fx-secondary;">
                            <children>
-                              <JFXButton buttonType="RAISED" maxHeight="50.0" onAction="#supprimer" prefHeight="50.0" styleClass="cancelButton" text="Supprimer " />
-                              <JFXButton buttonType="RAISED" maxHeight="50.0" onAction="#update" prefHeight="50.0" prefWidth="141.0" ripplerFill="#18bc09" styleClass="confirmButton" text="Update" />
+                              <JFXButton buttonType="RAISED" maxHeight="40.0" onAction="#supprimer" prefHeight="30.0" styleClass="cancelButton" text="Supprimer " />
+                              <JFXButton buttonType="RAISED" maxHeight="40.0" onAction="#update" prefHeight="30.0" prefWidth="141.0" ripplerFill="#18bc09" styleClass="confirmButton" text="Update" />
                            </children>
                            <VBox.margin>
                               <Insets />
@@ -77,6 +77,7 @@
                            </font>
                         </JFXTextField>
                         <ListView fx:id="listFournisseur" prefHeight="200.0" prefWidth="200.0" style="-fx-font-weight: bold; -fx-background-color: -fx-primary;" VBox.vgrow="ALWAYS" />
+                            <JFXButton buttonType="RAISED" onAction="#addFournisseur" prefHeight="49.0" prefWidth="141.0" ripplerFill="#18bc09" styleClass="confirmButton" text="Ajouter" />
                      </children>
                   </VBox>
                </children>
@@ -84,26 +85,7 @@
                   <Insets top="10.0" />
                </padding>
             </HBox>
-                <JFXButton buttonType="RAISED" layoutX="364.0" layoutY="259.0" onAction="#addFournisseur" prefHeight="49.0" prefWidth="141.0" ripplerFill="#18bc09" styleClass="confirmButton" text="Ajouter" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="150.0" />
             </children>
         </AnchorPane>
-        <HBox alignment="CENTER_LEFT" layoutX="-13.0" prefHeight="70.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: -fx-primary;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <effect>
-                <DropShadow color="#61696b" height="36.43" offsetX="2.0" radius="9.1075" spread="0.77" width="2.0" />
-            </effect>
-            <children>
-                <Label prefHeight="40.0" prefWidth="288.0" text="Nouveau Fournisseur" textFill="#e8e5e5">
-                    <font>
-                        <Font name="Arial" size="24.0" />
-                    </font>
-                    <HBox.margin>
-                        <Insets top="10.0" />
-                    </HBox.margin>
-                </Label>
-            </children>
-            <padding>
-                <Insets bottom="20.0" left="20.0" />
-            </padding>
-        </HBox>
     </children>
 </AnchorPane>

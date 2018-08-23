@@ -38,6 +38,7 @@ public class Controller implements EventHandler<MouseEvent> {
     public static final String NOUVEAU_FOURNISSEUR_URL = "/NouveauFournisseur.fxml";
     public static final String CAISSE_CONTROLLER_URL = "/Caisse.fxml";
     public static final String NOUVEL_CATEGORIE_CONTROLLER = "/AjouterCategorie.fxml";
+    public static final String HISTORIQUE_URL = "/HistoriqueCaisseView.fxml";
 
 
     @FXML
@@ -172,4 +173,7 @@ public class Controller implements EventHandler<MouseEvent> {
 
     }
 
+    public void Historique(ActionEvent actionEvent) {
+        this.loadScene(Controller.HISTORIQUE_URL);
+    }
 }

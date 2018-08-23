@@ -14,9 +14,9 @@
 
 <AnchorPane blendMode="HARD_LIGHT" prefHeight="531.0" prefWidth="600.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NouveauProduitController">
     <children>
-        <AnchorPane layoutX="10.0" layoutY="100.0" prefHeight="281.0" prefWidth="577.0" styleClass="addProductContainer" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
+        <AnchorPane layoutX="10.0" layoutY="100.0" prefHeight="281.0" prefWidth="577.0" style="-fx-background-color: -fx-secondary;" styleClass="addProductContainer" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="80.0">
             <children>
-            <HBox alignment="CENTER" layoutX="11.0" layoutY="11.0" spacing="50.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER" layoutX="11.0" layoutY="11.0" spacing="50.0" style="-fx-background-color: -fx-secondary;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <VBox alignment="CENTER" layoutX="11.0" layoutY="11.0" prefWidth="250.0" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" HBox.hgrow="ALWAYS">
                      <children>
@@ -31,7 +31,7 @@
                            </font>
                         </JFXTextField>
                             <JFXTextField fx:id="discount" layoutX="11.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0" promptText="Remise" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="110.0" VBox.vgrow="ALWAYS" />
-                            <JFXTextField fx:id="pruchacePrice" prefHeight="30.0" prefWidth="200.0" promptText="Prix d'achat" />
+                            <JFXTextField fx:id="pruchacePrice" prefHeight="30.0" prefWidth="200.0" promptText="Tax d'achat" />
                         <Label alignment="CENTER_RIGHT" text="Categorie" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets />

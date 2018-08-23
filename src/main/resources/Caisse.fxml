@@ -118,7 +118,7 @@
                                     <Insets left="3.0" right="3.0" />
                                  </HBox.margin>
                               </Separator>
-                              <Button fx:id="addToCart" alignment="CENTER_RIGHT" contentDisplay="CENTER" defaultButton="true" minHeight="70.0" mnemonicParsing="false" onAction="#addTocart" styleClass="addButton" text="Ajouter " textOverrun="CENTER_ELLIPSIS" wrapText="true">
+                              <Button fx:id="addToCart" alignment="CENTER_RIGHT" contentDisplay="CENTER" defaultButton="true" minHeight="70.0" mnemonicParsing="false" onMouseClicked="#addTocart" styleClass="addButton" text="Ajouter " textOverrun="CENTER_ELLIPSIS" wrapText="true">
                                  <font>
                                     <Font size="19.0" />
                                  </font>
@@ -231,7 +231,7 @@
                                           <Font size="28.0" />
                                        </font>
                                     </Label>
-                                    <JFXTextField fx:id="search" alignment="CENTER" focusColor="#f2f2f5" promptText="Recherche" style="-fx-background-color: white;">
+                                    <JFXTextField fx:id="search" alignment="CENTER" focusColor="#1919c9" promptText="Recherche" style="-fx-background-color: white;">
                                        <font>
                                           <Font name="Arial Bold" size="21.0" />
                                        </font>

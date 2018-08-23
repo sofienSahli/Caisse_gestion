@@ -5,6 +5,7 @@ import entities.HistoriqueCaisse;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.sql.Date;
 import java.util.List;
 
 public class HistoriqueCaisseDAO {
@@ -35,7 +36,7 @@ public class HistoriqueCaisseDAO {
     public List<HistoriqueCaisse> findAll() {
         List fournisseur;
         session.beginTransaction();
-        fournisseur = session.createQuery("From Fournisseur").list();
+        fournisseur = session.createQuery("From HistoriqueCaisse").list();
         session.getTransaction().commit();
         session.close();
 
@@ -59,16 +60,34 @@ public class HistoriqueCaisseDAO {
         session.close();
         return fournisseur;
     }
+
     public List<HistoriqueCaisse> findByString(String query) {
         List fournisseurs;
         session.beginTransaction();
-        fournisseurs = session.createQuery("From HistoriqueCaisse where nom like concat('%',:query,'%') ")
+        fournisseurs = session.createQuery("select hc From HistoriqueCaisse hc JOIN fetch hc.produits p WHERE " +
+                "p.nom like concat('%',:query,'%')" +
+                "or p.reference like concat('%',:query,'%')" +
+                "or p.codabar  like concat('%',:query,'%') ")
                 .setParameter("query", query)
+                .list();
+        //fournisseurs.get(0).toString();
+        session.getTransaction().commit();
+        session.close();
+        return fournisseurs;
+    }
+
+    public List<HistoriqueCaisse> findByDate(Date start, Date end) {
+        List fournisseurs;
+        session.beginTransaction();
+        fournisseurs = session.createQuery("From HistoriqueCaisse where date between :start and :end ")
+                .setParameter("start", start)
+                .setParameter("end", end)
                 .list();
 
         session.getTransaction().commit();
         session.close();
         return fournisseurs;
     }
+
 
 }
